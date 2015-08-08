@@ -37,4 +37,4 @@ test:
 # ldd - show dirac.x dependencies
         - ldd bin/example: { pwd: build }
 # run tests
-        - bin/example 100 1:{ pwd: build }
+        - bin/example:  { pwd: build }
