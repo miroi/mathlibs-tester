@@ -26,9 +26,9 @@ test:
 # check our environment variables
         - echo "Number of processors on this machine is `cat /proc/cpuinfo | grep processor | wc -l` "
 # take care of proper library
-        - sudo apt-get install libopenblas-base libopenblas-dev
-        - sudo apt-get remove libatlas-base-dev libatlas-dev
         - sudo apt-get remove libblas-dev liblapack-dev
+        - sudo apt-get remove libatlas-base-dev libatlas-dev
+        - sudo apt-get install libopenblas-base libopenblas-dev
         - sudo apt-get autoremove
 # show info about available processors
         - lscpu
