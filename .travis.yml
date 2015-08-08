@@ -20,7 +20,7 @@ script:
     #  run test (should end with 0)
   - cd bin
   - ls -lt
-  - ./example
+  - bundle exec ./example
 
 # turn off email notifications
 notifications:
