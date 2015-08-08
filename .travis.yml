@@ -12,13 +12,13 @@ install:
     # PEP8 and py.test
   - sudo pip install pytest pep8
 script:
-  - python ./setup.py --fc=gfortran --cmake-options='-DMATH_LIB_SEARCH_ORDER="OPENBLAS;ATLAS;SYSTEM_NATIVE;MKL"'
+  - python ./setup.py --fc=gfortran --cmake-options='-DMATH_LIB_SEARCH_ORDER="OPENBLAS;ATLAS;SYSTEM_NATIVE;MKL"' build
   - cd build
-  - make VERBOSE=1: { pwd: build }
+  - make VERBOSE=1
     # show dependencies
-  - ldd bin/example: { pwd: build } 
+  - ldd bin/example
     #  run test (should end with 0)
-  - bin/example: { pwd: build }
+  - bin/example
 
 # turn off email notifications
 notifications:
