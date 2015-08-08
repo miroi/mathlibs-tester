@@ -29,7 +29,7 @@ test:
         - sudo apt-get autoclean
         - sudo apt-get clean
         - sudo apt-get install libblas-dev liblapack-dev
-        - sudo apt-get install libatlas-dev
+       # - sudo apt-get install libatlas-dev
         - sudo apt-get install libopenblas-base libopenblas-dev
 # show info about available processors
         - lscpu
