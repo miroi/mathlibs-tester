@@ -14,6 +14,12 @@ install:
 script:
   - python ./setup.py --fc=gfortran --cmake-options='-DMATH_LIB_SEARCH_ORDER="OPENBLAS;ATLAS;SYSTEM_NATIVE;MKL"'
   - cd build
-  - make VERBOSE=1
-  - ldd bin/example
-  - bin/example
+  - make VERBOSE=1: { pwd: build }
+    # show dependencies
+  - ldd bin/example: { pwd: build } 
+    #  run test (should end with 0)
+  - bin/example: { pwd: build }
+
+# turn off email notifications
+notifications:
+  email: false
