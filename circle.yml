@@ -25,8 +25,9 @@ test:
     pre:
 # check our environment variables
         - echo "Number of processors on this machine is `cat /proc/cpuinfo | grep processor | wc -l` "
-# check for correct blas library selected in path (atlas)
-        - sudo update-alternatives --display libblas.so.3gf
+# take care of proper library
+        - sudo apt-get install libopenblas-base libopenblas-dev
+        - sudo apt-get remove libatlas-base-dev libatlas-dev
 # show info about available processors
         - lscpu
     override:
