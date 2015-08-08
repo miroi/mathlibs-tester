@@ -15,11 +15,6 @@ general:
         only:
             - master
 
-machine:
-    environment:
-# set environment variables to make MPI and tests work
-        PATH: /usr/lib/openblas-base:$PATH
-
 test:
     pre:
 # check our environment variables
