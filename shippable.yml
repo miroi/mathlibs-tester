@@ -11,19 +11,19 @@ branches:
     only:
         - master
 
-# environment variable for Dirac MPI command
-env:
-    - DIRAC_MPI_COMMAND="mpirun -np 2"
-    
 # language settings - prepare Python environment
 language: python
 
 # install/upgrade needed software
 install:
 # install the newest versions
-    - sudo apt-get install gcc g++ gfortran make cmake libblas-dev liblapack-dev
-# remove Open MPI installation if any
-    - sudo apt-get remove openmpi-bin libopenmpi-dev
+    - sudo apt-get update
+    - sudo apt-get autoclean
+    - sudo apt-get clean
+    - sudo apt-get install gcc g++ gfortran make cmake 
+    - sudo apt-get install libblas-dev liblapack-dev
+    - sudo apt-get install libopenblas-base
+    - sudo apt-get install libopenblas-dev
 
 # system info
 before_script:
@@ -37,9 +37,9 @@ before_script:
     
 # configure, build optimized code and run 
 script:
-    - python ./setup.py --fc=gfortran
+    - python ./setup.py --fc=gfortran --cmake-options='-DMATH_LIB_SEARCH_ORDER="OPENBLAS;ATLAS;SYSTEM_NATIVE;MKL"'
     - cd build
-    - make
+    - make VERBOSE=1
 # ldd : show dependencies
     - ldd bin/example
 # run test (should end with 0)
