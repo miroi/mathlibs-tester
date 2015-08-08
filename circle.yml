@@ -1,0 +1,42 @@
+## Simple buildup configuration file for circleci.com
+##
+## See https://circleci.com/docs/getting-started
+##     https://circleci.com/docs/configuration
+##     https://circleci.com/docs/config-sample
+##
+## OpenMPI 64-bit installation: 
+##     https://gist.github.com/rbast/81760961c5a8199e561a
+##     http://diracprogram.org/doc/release-12/installation/int64/mpi.html
+##
+
+# list of branches to build
+general:
+    branches:
+        only:
+            - master
+
+machine:
+    environment:
+# set environment variables to make MPI and tests work
+        PATH: $HOME/open_mpi/bin:$PATH
+        LD_LIBRARY_PATH: $HOME/open_mpi/lib:$LD_LIBRARY_PATH
+# jobs used for build and test, do not use high numbers because memory in VM is limited
+        N_PROC: `cat /proc/cpuinfo | grep processor | wc -l`
+
+test:
+    pre:
+# check our environment variables
+        - echo "Number of processors on this machine is $N_PROC"
+# check for correct blas library selected in path (atlas)
+        - sudo update-alternatives --display libblas.so.3gf
+# show info about available processors
+        - lscpu
+    override:
+# configure, build optimized code and run tests (Dirac 64-bit with OpenMPI and documentation)
+        - python ./setup.py --fc=gfortran
+# build with make, build with ctest makes impossible to submit more test commands into one entry on dashboard
+        - make: { pwd: build }
+# ldd - show dirac.x dependencies
+        - ldd bin/example.x: { pwd: build }
+# run tests
+        - bin/example.x 100 1
