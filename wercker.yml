@@ -1,7 +1,6 @@
 ##
 ## Simple buildup configuration file for the Wercker-CI service http://devcenter.wercker.com/articles/werckeryml/
 ##
-##
 box: wercker/python
 
 build:
@@ -19,15 +18,15 @@ build:
     - script:
         name: run and setup configuration script
         code: |
-          python ./setup.py --fc=gfortran 
+          python ./setup.py --fc=gfortran
 
     - script:
         name: build and test
         code: |
           cd build
-          make      
+          make
           ldd bin/example
-          bin/example                                    
+          bin/example
 
 ## turn off email notifications
 notifications:
