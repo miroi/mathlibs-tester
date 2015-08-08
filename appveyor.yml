@@ -65,6 +65,7 @@ test_script:
 #- py.test -vv update.py
 #- py.test -vv test/test.py
 #- py.test -vv lib/config.py
-- python setup.py 
+- python setup.py --generator="MinGW Makefiles"
 - cd build
 - mingw32-make
+- bin\example.exe
