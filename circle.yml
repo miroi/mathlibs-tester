@@ -35,6 +35,6 @@ test:
 # build with make, build with ctest makes impossible to submit more test commands into one entry on dashboard
         - make: { pwd: build }
 # ldd - show dirac.x dependencies
-        - ldd bin/example.x: { pwd: build }
+        - ldd bin/example: { pwd: build }
 # run tests
         - bin/example.x 100 1
