@@ -1,9 +1,12 @@
+[![Build Status](https://travis-ci.org/miroi/mathlibs-tester.svg?branch=master)](https://travis-ci.org/miroi/mathlibs-tester/builds)
+[![Build Status](https://ci.appveyor.com/api/projects/status/github/miroi/mathlibs-tester?branch=master&svg=true)](https://ci.appveyor.com/project/miroi/mathlibs-tester/history)
+
 MathLibs tester
 ===============
 
-Simple Fortran90 program to for checking few LAPACK and BLAS mathematical libraries.
+Simple Fortran90 program for checking few LAPACK and BLAS mathematical libraries.
 
-The MathLibs tester can be used to evaluate internal parallelization of available mathematical libraries.
+The MathLibs tester can be used to evaluate performance internal parallelization of available mathematical libraries.
 
 Mathematical libraries can be from these packages:
 - GNU system native
@@ -14,4 +17,4 @@ Mathematical libraries can be from these packages:
 - ESSL
 
 The **MathLibs-tester** project is heavily based on the [autocmake](https://github.com/scisoft/autocmake) CMake plugin composer
-and serves also for autocmake testing.
+and serves also its testing.
