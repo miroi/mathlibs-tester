@@ -12,7 +12,8 @@ install:
     # PEP8 and py.test
   - sudo pip install pytest pep8
 script:
-  - python ./setup.py --fc=gfortran --cmake-options='-DMATH_LIB_SEARCH_ORDER="OPENBLAS;ATLAS;SYSTEM_NATIVE"'
+  - python ./setup.py --fc=gfortran --cmake-options='-DMATH_LIB_SEARCH_ORDER="OPENBLAS;ATLAS;SYSTEM_NATIVE;MKL"'
   - cd build
-  - make
-  - bin/example 100 1
+  - make VERBOSE=1
+  - ldd bin/example
+  - bin/example
