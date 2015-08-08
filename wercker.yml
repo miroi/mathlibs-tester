@@ -1,12 +1,17 @@
 ##
-## Simple buildup configuration file for the Wercker-CI service http://devcenter.wercker.com/articles/werckeryml/
+## Simple DIRAC buildup configuration file for the Wercker-CI service http://devcenter.wercker.com/articles/werckeryml/
+##
 ##
 box: wercker/python
 
 build:
   steps:
     - install-packages:
-        packages: "gfortran make cmake libblas-dev liblapack-dev"
+        packages: "git gcc g++ gfortran make cmake libblas-dev liblapack-dev libfreetype6-dev zlib1g-dev doxygen"
+
+    - pip-install:
+        requirements_file: ""
+        packages_list: "matplotlib sphinx==1.2.3 sphinxcontrib-bibtex sphinx_rtd_theme hieroglyph"
 
     - script:
         name: show system resources
@@ -16,18 +21,22 @@ build:
           free -m
 
     - script:
-        name: run and setup configuration script
+        name: update submodule, run pamadm and setup configuration scripts
         code: |
-          python ./setup.py --fc=gfortran
+          python ./setup --fc=gfortran
 
     - script:
-        name: build and test
+        name: run ctest for configuration/buildup/test/submit
         code: |
           cd build
+          ## we have only 30 minutes for the whole buildup !
           make
+          ## ldd : show dependencies
           ldd bin/example
+          ## true : this script continues even if some of tests fail
           bin/example
 
 ## turn off email notifications
 notifications:
         email: false
+
