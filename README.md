@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/miroi/mathlibs-tester.svg?branch=master)](https://travis-ci.org/miroi/mathlibs-tester/builds)
 [![Build Status](https://ci.appveyor.com/api/projects/status/github/miroi/mathlibs-tester?branch=master&svg=true)](https://ci.appveyor.com/project/miroi/mathlibs-tester/history)
 [![Circle CI](https://circleci.com/gh/miroi/mathlibs-tester.svg?style=svg)](https://circleci.com/gh/miroi/mathlibs-tester)
+https://api.shippable.com/projects/55c5fa6fedd7f2c05299e676/badge/master
 
 
 MathLibs tester
