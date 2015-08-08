@@ -21,11 +21,9 @@ language: python
 # install/upgrade needed software
 install:
 # install the newest versions
-    - sudo apt-get install gcc g++ gfortran make cmake 
+    - sudo apt-get install gcc g++ gfortran make cmake libblas-dev liblapack-dev
 # remove Open MPI installation if any
     - sudo apt-get remove openmpi-bin libopenmpi-dev
-# install MPICH2
-    - sudo apt-get install mpich2
 
 # system info
 before_script:
