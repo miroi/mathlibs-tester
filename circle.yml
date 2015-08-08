@@ -20,13 +20,11 @@ machine:
 # set environment variables to make MPI and tests work
         PATH: $HOME/open_mpi/bin:$PATH
         LD_LIBRARY_PATH: $HOME/open_mpi/lib:$LD_LIBRARY_PATH
-# jobs used for build and test, do not use high numbers because memory in VM is limited
-        N_PROC: `cat /proc/cpuinfo | grep processor | wc -l`
 
 test:
     pre:
 # check our environment variables
-        - echo "Number of processors on this machine is $N_PROC"
+        - echo "Number of processors on this machine is `cat /proc/cpuinfo | grep processor | wc -l` "
 # check for correct blas library selected in path (atlas)
         - sudo update-alternatives --display libblas.so.3gf
 # show info about available processors
