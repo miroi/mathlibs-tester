@@ -9,10 +9,6 @@ build:
     - install-packages:
         packages: "gfortran make cmake libblas-dev liblapack-dev"
 
-    - pip-install:
-        requirements_file: ""
-        packages_list: "pytest"
-
     - script:
         name: show system resources
         code: |
@@ -29,11 +25,8 @@ build:
         name: build and test
         code: |
           cd build
-          ## 
           make      
-          ## ldd : show dependencies
           ldd bin/example
-          ## true 
           bin/example                                    
 
 ## turn off email notifications
