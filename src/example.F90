@@ -49,15 +49,19 @@ program example
    ! fill A,b with numbers
    do i=1,n
    do j=1,n
-#if defined OWN_FILLED
-    ! use formulas
-    aij=log( (dfloat(i)+dfloat(j)-0.24) / (dfloat(i)-0.045))
-    !bij=log( (dfloat(i)+dfloat(j)+0.3637 / (dfloat(i)*dfloat(j)-0.27389))) -
-!dfloat(i)
-    bij=aij-((dfloat(i)+dfloat(j))/(2*dfloat(i)-dfloat(j)+0.336))
-#else
+#if defined RANDOM_FILLED
     ! use random numbers
     aij=rand();bij=rand()
+#else
+    ! use formulas
+    !aij=log( (dfloat(i)+dfloat(j)-0.24) / (dfloat(i)-0.045))
+    !aij=log( dfloat(i)+dfloat(j)) / log(dfloat(j+1)*dfloat(i))
+    aij=log( dfloat(i)+dfloat(j)) / (dfloat(j+1)+dfloat(i+2))
+    !aij=log( dfloat(i)+dfloat(j) ) / (dfloat(j)+dfloat(i))
+
+    bij=log( dfloat(i)+dfloat(j+2)) / log(dfloat(i+1)*dfloat(j+2))
+    !bij=aij-((dfloat(i)+dfloat(j))/(2*dfloat(i)-dfloat(j)+0.336))
+
 #endif
     a(i,j)=aij;b(i,j)=bij
     as(i,j)=a(i,j);bs(i,j)=b(i,j)
@@ -88,7 +92,7 @@ program example
      print *,'zero matrix norm',zeronorm
    endif
 
-   if (zeronorm.le.1.0d-10) then
+   if (zeronorm.le.1.0d-8) then
      print *,'dgesv-dgemm-dnrm2 lapack/blas test ok'
      if (verb >= 1) then
        write (*,"('Time = ',f7.3,' seconds.')"),t2-t1
