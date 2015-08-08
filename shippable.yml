@@ -39,7 +39,7 @@ before_script:
     
 # configure, build optimized code and run 
 script:
-    - python ./pamadm --fc=gfortran
+    - python ./setup.py --fc=gfortran
     - cd build
     - make
 # ldd : show dependencies
