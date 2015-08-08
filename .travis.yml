@@ -18,7 +18,7 @@ script:
     # show dependencies
   - ldd bin/example
     #  run test (should end with 0)
-  - bin/example
+  - ./bin/example
 
 # turn off email notifications
 notifications:
