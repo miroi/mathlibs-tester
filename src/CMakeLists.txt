@@ -1,3 +1,10 @@
+include(CTest)
+
+add_test(test COMMAND python setup --help )
+add_test(gfortran_sysnative COMMAND python setup --fc=gfortran; cd build;
+make; bin/example)
+
+
 if(LAPACK_FOUND)
     if(CMAKE_Fortran_COMPILER_ID MATCHES PGI)
         # remove -rdynamic flag offensive to PGI Fortran
