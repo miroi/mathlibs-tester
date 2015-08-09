@@ -22,5 +22,4 @@ Mathematical libraries can be from these packages:
 - OpenBLAS
 - ESSL
 
-The **MathLibs-tester** project is heavily based on the [autocmake](https://github.com/scisoft/autocmake) CMake plugin composer
-and serves also its testing.
+The **MathLibs-tester** project is built upon the [autocmake](https://github.com/scisoft/autocmake) CMake plugin composer and serves also its testing.
