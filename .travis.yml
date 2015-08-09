@@ -20,7 +20,7 @@ script:
     #  run test (should end with 0)
   - cd bin
   - ls -lt
-  - exec "./example"
+  ##- exec "./example"
 
 
 # turn off email notifications
