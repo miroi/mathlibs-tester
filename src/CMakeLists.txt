@@ -1,8 +1,22 @@
-include(CTest)
+#include(CTest)
+#add_test(test COMMAND python setup --help )
+#add_test(gfortran_sysnative COMMAND python setup --fc=gfortran; cd build;
 
-add_test(test COMMAND python setup --help )
-add_test(gfortran_sysnative COMMAND python setup --fc=gfortran; cd build;
-make; bin/example)
+message("here CTest:")
+include(CTest)
+message("CTest: CTEST_PROJECT_NAME=${CTEST_PROJECT_NAME}")
+
+enable_testing()
+#add_test(NAME testik WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+#         COMMAND "python setup.py --help")
+
+message("CMAKE_SOURCE_DIR=${CMAKE_SOURCE_DIR}")
+
+add_test(t ${CMAKE_SOURCE_DIR}/runtest.bash)
+
+#add_test(NAME t WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+#         COMMAND "${CMAKE_SOURCE_DIR}/setup.py --help")
+
 
 
 if(LAPACK_FOUND)
