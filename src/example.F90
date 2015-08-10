@@ -9,6 +9,7 @@ program example
    real(8), allocatable :: b(:,:),bs(:,:)
    integer, allocatable :: ipiv(:)
    real(8), external :: dnrm2
+   integer, external :: iargc
 #if defined (VAR_PGI)
    real(8), external :: rand
 #endif
@@ -18,7 +19,7 @@ program example
 
 !Read input from the command line 
 
-   nargs = IARGC() 
+   nargs = iargc() 
    if (nargs == 0) n = nfixed 
    if (nargs /= 0 .and. nargs /= 1 .and. nargs /= 2) then
      print *,"usage: bin/example"
