@@ -9,9 +9,9 @@ program example
    real(8), allocatable :: b(:,:),bs(:,:)
    integer, allocatable :: ipiv(:)
    real(8), external :: dnrm2
-   integer, external :: iargc
 #if defined (VAR_PGI)
    real(8), external :: rand
+   integer, external :: iargc
 #endif
    real(8) :: zeronorm, aij, bij
    character*5 :: arg1, arg2
