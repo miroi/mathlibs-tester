@@ -1,4 +1,12 @@
-!#/bin/bash
+#!/bin/bash
+
+#
+#  crontab prescription of HPC UMB BB cluster
+#---------------------------------------------
+#
+#30 01 * * 1,2,3,4,5,6,7 MT=/home/milias/Work/qch/software/software_projects/mathlibs-tester; cd $MT; nohup $MT/cdash_scripts/hpcc_umb_runtest.bash > $MT/buildup.log 2>&1
+#
+#
 
 echo "Working host is: "; hostname -f
 
