@@ -47,8 +47,29 @@ bin/example
 make Experimental
 cd ..
 
+BUILD=build_gfortran_atlas_static
+python ./setup.py --fc=gfortran --static  --cmake-options="-DMATH_LIB_SEARCH_ORDER=ATLAS -D BUILDNAME='HPC-UMB_gfortran_atlas_static' " $BUILD
+cd $BUILD
+make VERBOSE=1
+ls -lt bin/example
+ldd bin/example
+bin/example
+make Experimental
+cd ..
+
 BUILD=build_gfortran_system_native_dynamic
-python ./setup.py --fc=gfortran  --cmake-options="-DMATH_LIB_SEARCH_ORDER=SYSTEM_NATIVE -D BUILDNAME='HPC-UMB_gfortran_sysnative_dynamic' " $BUILD
+python ./setup.py --fc=gfortran  --cmake-options="-DMATH_LIB_SEARCH_ORDER=SYSTEM_NATIVE -D BUILDNAME='HPC-UMB_gfortran_systemnative_dynamic' " $BUILD
+cd $BUILD
+make VERBOSE=1
+ls -lt bin/example
+ldd bin/example
+bin/example
+make Experimental
+cd ..
+
+
+BUILD=build_gfortran_system_native_static
+python ./setup.py --fc=gfortran --static  --cmake-options="-DMATH_LIB_SEARCH_ORDER=SYSTEM_NATIVE -D BUILDNAME='HPC-UMB_gfortran_systemnative_static' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -118,5 +139,7 @@ ldd bin/example
 bin/example
 make Experimental
 cd ..
+
+echo -e  "\n\n All tests finished at `date`"
 
 exit 0
