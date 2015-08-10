@@ -13,21 +13,3 @@ if(LAPACK_FOUND)
 else()
     message(FATAL_ERROR "LAPACK/BLAS libraries not found for the project!")
 endif()
-
-
-message("here CTest:")
-include(CTest)
-message("CTest: CTEST_PROJECT_NAME=${CTEST_PROJECT_NAME}")
-enable_testing()
-
-message("CMAKE_SOURCE_DIR=${CMAKE_SOURCE_DIR}")
-message("PROJECT_BINARY_DIR=${PROJECT_BINARY_DIR}")
-message("EXECUTABLE_OUTPUT_PATH=${EXECUTABLE_OUTPUT_PATH}")
-
-#include()
-
-add_test(t ${PROJECT_BINARY_DIR}/bin/example)
-#add_test(t ${CMAKE_SOURCE_DIR}/src/example.F90)
-#add_test(example ${EXECUTABLE_OUTPUT_PATH}/bin/example)
-
-message("from src : PROJECT_SOURCE_DIR=${PROJECT_SOURCE_DIR}")
