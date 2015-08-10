@@ -1,7 +1,31 @@
 !#/bin/bash
 
-echo "hello !"
-pwd
+echo "Working host is: "; hostname -f
+
+source /mnt/apps/intel/bin/compilervars.sh intel64
+echo "Intel Fortran/C/C++ noncommercial compilers with MKL library activated, PROD_DIR=$PROD_DIR."
+
+source /mnt/apps/pgi/environment.sh
+echo "Portlang Group compilers activated ! PGI=$PGI"
+
+echo "My PATH=$PATH"
+echo "Running on host `hostname`"
+echo "Time is `date`"
+echo "Directory is `pwd`"
+# Define number of processors
+NPROCS=`cat /proc/cpuinfo | grep processor | wc -l`
+echo "This node has $NPROCS CPUs."
+
+timestamp1=`date +\%F_\%k-\%M-\%S`; timestamp=${timestamp1// /};
+echo -e "\n\n Running cdash buildups at "$timestamp ; echo -e "\n\n"
+
+export MATH_ROOT=/mnt/apps/intel/mkl; echo "Activated MATH_ROOT=$MATH_ROOT"
+export LC_ALL=C
+#export MKL_NUM_THREADS=${NPROCS}
+export MKL_NUM_THREADS=1
+export MKL_DYNAMIC="FALSE"
+export OMP_NUM_THREADS=1
+#
 
 cd /tmp/.
 if [[ -d "mathlibs-tester" ]]; then
