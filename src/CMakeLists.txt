@@ -10,6 +10,8 @@ if(LAPACK_FOUND)
     endif()
     add_executable(example example.F90)
     target_link_libraries(example ${MATH_LIBS})
+    # miro: for test
+    set(LAPACK_FOUND TRUE)
 else()
     message(FATAL_ERROR "LAPACK/BLAS libraries not found for the project!")
 endif()
