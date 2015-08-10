@@ -12,11 +12,10 @@ enable_testing()
 
 message("CMAKE_SOURCE_DIR=${CMAKE_SOURCE_DIR}")
 
-add_test(t ${CMAKE_SOURCE_DIR}/runtest.bash)
+add_test(t ${PROJECT_BINARY_DIR}/bin/example)
 
 #add_test(NAME t WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
 #         COMMAND "${CMAKE_SOURCE_DIR}/setup.py --help")
-
 
 
 if(LAPACK_FOUND)
