@@ -479,6 +479,10 @@ if("${MATH_LIBS}" STREQUAL "" AND "${MKL_FLAG}" STREQUAL "off")
     endforeach()
 endif()
 
+foreach(_service BLAS LAPACK)
+    set(${_service}_FOUND ${${_service}_FOUND} CACHE BOOL "${_service} found")
+endforeach()
+
 #miro: first lapack, then blas as lapack might need blas routine
 set(MATH_LIBS
     ${MATH_LIBS}
@@ -498,18 +502,5 @@ if (ENABLE_STATIC_LINKING)
         set (MATH_LIBS ${MATH_LIBS} -ldl -lc)
     endif()
 endif()
-
-#miro: fix of zeroed important output variables for BLAS/LAPACK detection after the "cmake .." command
-if (BLAS_LIBRARIES AND BLAS_TYPE AND NOT BLAS_FOUND)
-    set(BLAS_FOUND TRUE)
-endif()
-
-if (LAPACK_LIBRARIES AND LAPACK_TYPE AND NOT LAPACK_FOUND)
-    set(LAPACK_FOUND TRUE)
-endif()
-
-
-
-
 
 
