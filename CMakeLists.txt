@@ -18,6 +18,7 @@ endif()
 
 # directories which hold included cmake modules
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR}/cmake/downloaded)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR}/cmake/custom)
 
 # included cmake modules
 include(autocmake_fc)
@@ -31,3 +32,4 @@ include(autocmake_code_coverage)
 include(autocmake_safeguards)
 include(autocmake_default_build_paths)
 include(autocmake_src)
+include(test)
