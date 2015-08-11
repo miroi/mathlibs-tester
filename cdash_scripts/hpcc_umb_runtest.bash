@@ -40,10 +40,23 @@ if [[ -d "mathlibs-tester" ]]; then
   echo "deleting previous clone of mathlibs-tester"
   /bin/rm -rf mathlibs-tester
 fi
-echo "cloning again ..."
+echo "cloning the mathlibs-tester ..."
 git clone git@github.com:miroi/mathlibs-tester.git
 
 cd mathlibs-tester
+cd cmake
+python update.py --self
+python update.py ..
+
+# return to the main directory
+cd ..
+
+###################################
+#
+#  GNU gfortran  compiler
+#
+###################################
+
 
 BUILD=build_gfortran_atlas_dynamic
 python ./setup.py --fc=gfortran  --cmake-options="-DMATH_LIB_SEARCH_ORDER=ATLAS -D BUILDNAME='HPC-UMB_gfortran_atlas_dynamic' " $BUILD
@@ -98,6 +111,24 @@ make Experimental
 cd ..
 
 
+BUILD=build_gfortran_openblas_systemnative_static
+python ./setup.py --static  --fc=gfortran  --cmake-options="-DMATH_LIB_SEARCH_ORDER='OPENBLAS;SYSTEM_NATIVE' -D BUILDNAME='HPC-UMB_gfortran_openblas_sysnative_static' " $BUILD
+cd $BUILD
+make VERBOSE=1
+ls -lt bin/example
+ldd bin/example
+bin/example
+make Experimental
+cd ..
+
+
+
+#######################################################
+#
+#            Intel ifort compiler
+#
+#######################################################
+
 BUILD=build_ifort_mkl_int64_dynamic
 python ./setup.py --fc=ifort  --int64 --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_ifort_mkl_i8_dynamic' " $BUILD
 cd $BUILD
@@ -108,6 +139,85 @@ bin/example
 make Experimental
 cd ..
 
+BUILD=build_ifort_mkl_int64_static
+python ./setup.py --static --fc=ifort  --int64 --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_ifort_mkl_i8_static' " $BUILD
+cd $BUILD
+make VERBOSE=1
+ls -lt bin/example
+ldd bin/example
+bin/example
+make Experimental
+cd ..
+
+BUILD=build_ifort_mkl_dynamic
+python ./setup.py --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_ifort_mkl_dynamic' " $BUILD
+cd $BUILD
+make VERBOSE=1
+ls -lt bin/example
+ldd bin/example
+bin/example
+make Experimental
+cd ..
+
+BUILD=build_ifort_mkl_static
+python ./setup.py --static  --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_ifort_mkl_static' " $BUILD
+cd $BUILD
+make VERBOSE=1
+ls -lt bin/example
+ldd bin/example
+bin/example
+make Experimental
+cd ..
+
+
+BUILD=build_ifort_atlas_dynamic
+python ./setup.py --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='ATLAS;MKL' -D BUILDNAME='HPC-UMB_ifort_atlas_dynamic' " $BUILD
+cd $BUILD
+make VERBOSE=1
+ls -lt bin/example
+ldd bin/example
+bin/example
+make Experimental
+cd ..
+
+
+BUILD=build_ifort_atlas_static
+python ./setup.py --static --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='ATLAS;MKL' -D BUILDNAME='HPC-UMB_ifort_atlas_dynamic' " $BUILD
+cd $BUILD
+make VERBOSE=1
+ls -lt bin/example
+ldd bin/example
+bin/example
+make Experimental
+cd ..
+
+
+BUILD=build_ifort_systemnative_dynamic
+python ./setup.py --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='SYSTEM_NATIVE;ATLAS;MKL' -D BUILDNAME='HPC-UMB_ifort_systemnative_dynamic' " $BUILD
+cd $BUILD
+make VERBOSE=1
+ls -lt bin/example
+ldd bin/example
+bin/example
+make Experimental
+cd ..
+
+BUILD=build_ifort_systemnative_static
+python ./setup.py --static --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='SYSTEM_NATIVE;ATLAS;MKL' -D BUILDNAME='HPC-UMB_ifort_systemnative_static' " $BUILD
+cd $BUILD
+make VERBOSE=1
+ls -lt bin/example
+ldd bin/example
+bin/example
+make Experimental
+cd ..
+
+######################################################################
+#
+#               PGI pgf90 compiler
+#
+######################################################################
+
 BUILD=build_pgf90_mkl_int64_dynamic
 python ./setup.py --fc=pgf90  --int64 --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_pgf90_mkl_i8_dynamic' " $BUILD
 cd $BUILD
@@ -117,6 +227,49 @@ ldd bin/example
 bin/example
 make Experimental
 cd ..
+
+BUILD=build_pgf90_atlas_dynamic
+python ./setup.py --fc=pgf90  --cmake-options="-DMATH_LIB_SEARCH_ORDER='ATLAS;MKL' -D BUILDNAME='HPC-UMB_pgf90_atlas_dynamic' " $BUILD
+cd $BUILD
+make VERBOSE=1
+ls -lt bin/example
+ldd bin/example
+bin/example
+make Experimental
+cd ..
+
+
+BUILD=build_pgf90_systemnative_dynamic
+python ./setup.py --fc=pgf90  --cmake-options="-DMATH_LIB_SEARCH_ORDER='SYSTEM_NATIVE;ATLAS;MKL' -D BUILDNAME='HPC-UMB_pgf90_systemnative_dynamic' " $BUILD
+cd $BUILD
+make VERBOSE=1
+ls -lt bin/example
+ldd bin/example
+bin/example
+make Experimental
+cd ..
+
+BUILD=build_pgf90_systemnative_static
+python ./setup.py --fc=pgf90 --static --cmake-options="-DMATH_LIB_SEARCH_ORDER='SYSTEM_NATIVE;ATLAS;MKL' -D BUILDNAME='HPC-UMB_pgf90_systemnative_dynamic' " $BUILD
+cd $BUILD
+make VERBOSE=1
+ls -lt bin/example
+ldd bin/example
+bin/example
+make Experimental
+cd ..
+
+
+BUILD=build_pgf90_atlas_static
+python ./setup.py --fc=pgf90 --static --cmake-options="-DMATH_LIB_SEARCH_ORDER='ATLAS;MKL' -D BUILDNAME='HPC-UMB_pgf90_atlas_static' " $BUILD
+cd $BUILD
+make VERBOSE=1
+ls -lt bin/example
+ldd bin/example
+bin/example
+make Experimental
+cd ..
+
 
 BUILD=build_pgf90_mkl_dynamic
 python ./setup.py --fc=pgf90  --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_pgf90_mkl_dynamic' " $BUILD
