@@ -12,8 +12,4 @@ build:
           cd build
           make
           ldd bin/example
-          bin/example
-## turn off email notifications
-notifications:
-        email: false
-
+          bin/example 100 1
