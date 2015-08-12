@@ -1,12 +1,13 @@
 ##
 ## Simple buildup configuration file for the Wercker-CI service http://devcenter.wercker.com/articles/werckeryml/
 ##
+
 box: wercker/python
 
 build:
   steps:
     - install-packages:
-        packages: "gfortran cmake libblas-dev liblapack-dev"
+        packages: "git gfortran cmake libblas-dev liblapack-dev"
 
     - script:
         name: show system resources
@@ -16,7 +17,7 @@ build:
           free -m
 
     - script:
-        name: run and setup configuration script
+        name: run setup configuration script
         code: |
           python ./setup.py --fc=gfortran
 
