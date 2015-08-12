@@ -10,25 +10,11 @@ build:
         packages: "git gfortran cmake libblas-dev liblapack-dev"
 
     - script:
-        name: show system resources
-        code: |
-          lscpu
-          df -h
-          free -m
-
-    - script:
         name: run setup configuration script
         code: |
           python ./setup.py --fc=gfortran
 
-    - script:
-        name: build and test
-        code: |
-          cd build
-          make
-          ldd bin/example
-          bin/example
-
 ## turn off email notifications
 notifications:
         email: false
+
