@@ -93,6 +93,7 @@ program example
      print *,'zero matrix norm',zeronorm
    endif
 
+   print *,'matrix size = ',n,' verbosity level = ',verb
    if (zeronorm.le.1.0d-8) then
      print *,'dgesv-dgemm-dnrm2 lapack/blas test ok'
      if (verb >= 1) then
