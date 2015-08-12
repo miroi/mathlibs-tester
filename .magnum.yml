@@ -10,7 +10,9 @@
 
 install:
     # update sources
-    #- sudo apt-get update -y
+    - sudo apt-get update 
+    - sudo apt-get clean
+    - sudo apt-get autoclean
     # install software
     - sudo apt-get install gfortran make cmake libblas-dev liblapack-dev python-pip python-setuptools python-dev -y
     # install Python packages with pip
