@@ -182,7 +182,7 @@ cd ..
 
 
 BUILD=build_ifort_atlas_static
-python ./setup.py --static --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='ATLAS;MKL' -D BUILDNAME='HPC-UMB_ifort_atlas_dynamic' " $BUILD
+python ./setup.py --static --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='ATLAS;MKL' -D BUILDNAME='HPC-UMB_ifort_atlas_static' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
