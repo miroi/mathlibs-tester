@@ -12,9 +12,7 @@ MathLibs tester
 
 Simple Fortran90 program for checking few LAPACK and BLAS mathematical libraries.
 
-The MathLibs tester can be used to evaluate performance internal parallelization of available mathematical libraries.
-
-Mathematical libraries can be from these packages:
+The MathLibs tester can also be used to evaluate the performance of internal parallelization of selected routines from the well-know LAPACK and BLAS libraries, which may be in these packages:
 - GNU system native
 - ATLAS
 - ACML
@@ -25,3 +23,17 @@ Mathematical libraries can be from these packages:
 The **MathLibs-tester** project is built upon the [autocmake](https://github.com/scisoft/autocmake) CMake plugin composer and serves also its testing.
 
 For the **MathLibs-tester** project online testing see the [CDash-web](https://testboard.org/cdash/index.php?project=MathLibs-tester).
+
+
+Buildup and usage
+-----------------
+For example, utilize the commercial ifort compiler with MKL as the prefered library:
+~~~
+python setup.py --fc=ifort --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL;OPENBLAS;SYSTEM_NATIVE' build_ifort
+cd build_ifort
+make all
+bin/example
+~~~
+For more examples, see this [testing script](https://github.com/miroi/mathlibs-tester/blob/master/cdash_scripts/hpcc_umb_runtest.bash).
+
+
