@@ -1,5 +1,5 @@
 ##
-# The autocmake project test configuration for Windows OS at AppVeyor
+# The mathlibs-tester CI configuration for Windows OS at AppVeyor
 #
 # Current software used:
 # OS: 64-bit Windows Server 2012 R2
@@ -48,13 +48,11 @@ build_script:
 - set path=%path%;C:\software\mingw64\bin
 
 # download and unpack OpenBLAS library
-- ps: Invoke-WebRequest  http://web-docs.gsi.de/~milias/openblas-package/OpenBLAS-v0.2.14-Win64-int32.zip  -OutFile OpenBLAS-v0.2.14-Win64-int32.zip
-- dir
+- ps: wget http://web-docs.gsi.de/~milias/openblas-package/OpenBLAS-v0.2.14-Win64-int32.zip  -OutFile OpenBLAS-v0.2.14-Win64-int32.zip
 - 7z x OpenBLAS-v0.2.14-Win64-int32.zip > NUL
 
-# add compilers binary dir and OpenBLAS library dir to path
-#- set path=%path%;C:\software\mingw64\bin;C:\software\OpenBLAS-v0.2.14-Win64-int32\lib
-- set path=%path%;C:\software\mingw64\bin
+# add OpenBLAS .dll dir to path
+- set path=%path%;C:\software\OpenBLAS-v0.2.14-Win64-int32\bin
 
 # download and upgrade pip
 - ps: wget https://bootstrap.pypa.io/get-pip.py -OutFile get-pip.py
@@ -67,8 +65,7 @@ test_script:
 # show environment
 - echo %path%
 # run tests
-#- python setup.py --generator="MinGW Makefiles"
-- python setup.py --generator="MinGW Makefiles" --blas=off --lapack=off --explicit-libs="C:\\software\\OpenBLAS-v0.2.14-Win64-int32\\bin\\libopenblas.dll"
+- python setup.py --generator="MinGW Makefiles" --blas=off --lapack=off --explicit-libs="C:/software/OpenBLAS-v0.2.14-Win64-int32/bin/libopenblas.dll"
 - cd build
-- mingw32-make VERBOSE=1
+- mingw32-make
 - bin\example.exe
