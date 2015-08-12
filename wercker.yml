@@ -2,7 +2,7 @@ box: wercker/python
 build:
   steps:
     - install-packages:
-        packages: "git gfortran cmake libblas-dev liblapack-dev python"
+        packages: "gfortran cmake libblas-dev liblapack-dev"
     - script:
         name: run setup configuration script
         code: |
