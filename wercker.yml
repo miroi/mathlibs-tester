@@ -1,20 +1,11 @@
-##
-## Simple buildup configuration file for the Wercker-CI service http://devcenter.wercker.com/articles/werckeryml/
-##
-
 box: wercker/python
-
 build:
   steps:
     - install-packages:
         packages: "git gfortran cmake libblas-dev liblapack-dev"
-
     - script:
         name: run setup configuration script
         code: |
           python ./setup.py --fc=gfortran
-
-## turn off email notifications
 notifications:
         email: false
-
