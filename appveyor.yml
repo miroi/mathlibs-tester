@@ -68,7 +68,7 @@ test_script:
 - echo %path%
 # run tests
 #- python setup.py --generator="MinGW Makefiles"
-- python setup.py --generator="MinGW Makefiles" --blas=off --lapack=off --explicit-libs="C:\software\OpenBLAS-v0.2.14-Win64-int32\bin\libopenblas.dll" 
+- python setup.py --generator="MinGW Makefiles" --blas=off --lapack=off --explicit-libs="C:\\software\\OpenBLAS-v0.2.14-Win64-int32\\bin\\libopenblas.dll"
 - cd build
 - mingw32-make
 - bin\example.exe
