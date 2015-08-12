@@ -7,5 +7,3 @@ build:
         name: run setup configuration script
         code: |
           python ./setup.py --fc=gfortran
-notifications:
-        email: false
