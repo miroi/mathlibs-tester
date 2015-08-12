@@ -10,9 +10,9 @@
 
 install:
     # update sources
-    - sudo apt-get update 
     - sudo apt-get clean
     - sudo apt-get autoclean
+    - sudo apt-get update
     # install software
     - sudo apt-get install gfortran make cmake libblas-dev liblapack-dev python-pip python-setuptools python-dev -y
     # install Python packages with pip
@@ -21,7 +21,7 @@ install:
 script:
 # show CPU info
     - lscpu
-    - echo " number of procs at this machine : $(cat /proc/cpuinfo | grep processor | wc -l)"
+    #- echo " number of procs at this machine : $(cat /proc/cpuinfo | grep processor | wc -l)"
 # configure and build
     - python ./setup.py --fc=gfortran --cmake-options="-DMATH_LIB_SEARCH_ORDER='SYSTEM_NATIVE;ATLAS'"
     - cd build
