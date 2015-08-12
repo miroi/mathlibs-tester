@@ -3,7 +3,7 @@
 [![Circle CI](https://circleci.com/gh/miroi/mathlibs-tester.svg?style=svg)](https://circleci.com/gh/miroi/mathlibs-tester)
 [![wercker status](https://app.wercker.com/status/2101087ed2848ab011fed435c1efc7c4/s/master "wercker status")](https://app.wercker.com/project/bykey/2101087ed2848ab011fed435c1efc7c4)
 [![shippable status](https://api.shippable.com/projects/55c5fa6fedd7f2c05299e676/badge?branchName=master)](https://app.shippable.com/projects/55c5fa6fedd7f2c05299e676/builds/latest)
-[![magnum-ci status](https://magnum-ci.com/status/84ea5d43ec94be510b7c372be69d09f6.png)](https://magnum-ci.com/projects/3183/history)
+[![magnum-ci status](https://magnum-ci.com/status/84ea5d43ec94be510b7c372be69d09f6.png)](https://magnum-ci.com/public/52e55e31023c9144f57e/builds)
 
 
 
