@@ -3,10 +3,13 @@ Software performance
 
 - depending on the OpenMP MKL-threading
 
+./setup --fc=ifort --int64 --mkl=parallel build_ifort_mklpar_i8
+./setup --fc=ifort --int64 --mkl=sequenatial build_ifort_mklseq_i8
+
 The milias@lxir071.gsi.de interactive server
 --------------------------------------------
 
--  with 8 CPU 
+Intel(R) Xeon(R) CPU L5506 @ 2.13GHz;  8 CPU 
 
 export MKL_NUM_THREADS=4
 export MKL_DYNAMIC=false
