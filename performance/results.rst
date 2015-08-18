@@ -8,16 +8,17 @@ depending on the OpenMP MKL-threading
 
 The DGESV (LAPACK); DGEMM (BLAS) and DNRM2(BLAS) library routines called.
 
-The milias@lxir071.gsi.de interactive server
+The @lxir071.gsi.de interactive server
 --------------------------------------------
 
 Intel(R) Xeon(R) CPU L5506 @ 2.13GHz;  8 CPU 
 
-export MKL_NUM_THREADS=#
-export MKL_DYNAMIC=false
+- export MKL_NUM_THREADS=#
+- export MKL_DYNAMIC=false
 
-/bin/example 3000 1:
+/bin/example 3000 1
 ~~~~~~~~~~~~~~~~~~~
+mkl=sequential/parallel, MKL_DYNAMIC=false
 
 ===  ======
 #     time
@@ -29,9 +30,9 @@ seq  16.497
 8    21.709
 ===  ======
 
-/bin/example 7000 1:
+/bin/example 7000 1
 ~~~~~~~~~~~~~~~~~~~
-mkl=parallel, mkl_dynamic
+mkl=sequential/parallel, mkl_dynamic=false/true
 
 ===  =======   =======
 #     false     true
@@ -42,11 +43,13 @@ seq  205.269
 8    225.354   226.346
 ===  =======   =======
 
-The milias@login.grid.umb.sk cluster
+The @login.grid.umb.sk cluster
 ------------------------------------
+- Intel nodes per 12 cpu, 48GB RAM
 
-/bin/example 7000 1:
+/bin/example 7000 1
 ~~~~~~~~~~~~~~~~~~~~
+mkl=sequential/parallel, MKL_DYNAMIC=false
 
 === =======
 #    time
