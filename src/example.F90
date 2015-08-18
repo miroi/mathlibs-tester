@@ -15,7 +15,7 @@ program example
 #endif
    real(8) :: zeronorm, aij, bij
    character*5 :: arg1, arg2
-   real(4) ::  t1,t2
+   integer :: counti, countf, count_rate
 
 !Read input from the command line 
 
@@ -69,7 +69,7 @@ program example
    enddo
    enddo
 
-   call CPU_TIME( t1 )
+   call system_clock(counti,count_rate)
 
    call dgesv( n, n, a, n, ipiv, b, n , info )
    if (info.gt.0) stop "error in dgesv routine !"
@@ -87,8 +87,10 @@ program example
 
    ! the bs should be zero matrix, check it
    ! get euklid.norm |A.x-b| - must be zero
-     zeronorm=dnrm2(n*n,bs,1)/(dfloat(n)*dfloat(n))
-   call CPU_TIME( t2 )
+   zeronorm=dnrm2(n*n,bs,1)/(dfloat(n)*dfloat(n))
+
+   call system_clock(countf)
+
    if (verb >= 2) then
      print *,'zero matrix norm',zeronorm
    endif
@@ -97,7 +99,7 @@ program example
    if (zeronorm.le.1.0d-8) then
      print *,'dgesv-dgemm-dnrm2 lapack/blas test ok'
      if (verb >= 1) then
-       write (*,"('Time = ',f7.3,' seconds.')"),t2-t1
+       write (*,"('Elapsed time = ',f7.3,' seconds.')"),REAL(countf-counti)/REAL(count_rate)
      endif
    else
      stop 'dgesv-dgemm-dnrm2 lapack/blas test failed!'
