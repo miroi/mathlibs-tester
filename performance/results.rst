@@ -8,6 +8,14 @@ depending on the OpenMP MKL-threading
 
 The DGESV (LAPACK); DGEMM (BLAS) and DNRM2(BLAS) library routines called.
 
+Run as
+~~~~~~
+::
+
+ /bin/example N i
+
+where N is the size of the matrix, i is the print level (recommended 1).
+
 The @lxir071.gsi.de interactive server
 --------------------------------------------
 
