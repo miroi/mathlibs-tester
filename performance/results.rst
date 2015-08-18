@@ -7,7 +7,7 @@ depending on the OpenMP MKL-threading
 -  python setup.py --fc=ifort --int64 --mkl=parallel build_ifort_mklpar_i8
 -  python setup.py --fc=ifort --int64 --mkl=sequential build_ifort_mklseq_i8
 
-The DGESV (LAPACK); DGEMM (BLAS) and DNRM2(BLAS) library routines called.
+The DGESV (LAPACK); DGEMM (BLAS) and DNRM2(BLAS) library routines are called.
 
 Run as
 ------
@@ -26,47 +26,34 @@ Intel(R) Xeon(R) CPU L5506 @ 2.13GHz;  8 CPU
 
 /bin/example 3000 1
 ~~~~~~~~~~~~~~~~~~~
-mkl=sequential/parallel, MKL_DYNAMIC=false
 
 ===  ======
 #     time
 ===  ======
 seq  16.497
-1    16.649 
-2    19.489
-4    20.509
-8    21.709
+1    16.141
+2    8.485
+4    4.650
+8    3.397
 ===  ======
-
-/bin/example 7000 1
-~~~~~~~~~~~~~~~~~~~
-mkl=sequential/parallel, mkl_dynamic=false/true
-
-===  =======   =======
-#     false     true
-===  =======   =======
-seq  205.269
-2    208.497   209.537
-4    211.145   208.957
-8    225.354   226.346
-===  =======   =======
 
 The @login.grid.umb.sk cluster
 ==============================
-- Intel 12 cpu per node, 48GB RAM
+Intel 12 cpu per node, 48GB RAM
+
+- export MKL_NUM_THREADS=#
+- export MKL_DYNAMIC=false
 
 /bin/example 7000 1
 ~~~~~~~~~~~~~~~~~~~~
-mkl=sequential/parallel, MKL_DYNAMIC=false
 
 === =======
 #    time
 === =======
-seq 144.247
-2   147.786
-4   149.180   
-8   153.020
-12  161.729
+seq  ...
+2    ...
+4    ...
+8    ...
+12   ...
 === =======
-
 
