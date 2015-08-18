@@ -1,12 +1,12 @@
 Software performance
 =====================
 
-- depending on the OpenMP MKL-threading
+depending on the OpenMP MKL-threading
 
-python setup.py --fc=ifort --int64 --mkl=parallel build_ifort_mklpar_i8
-python setup.py --fc=ifort --int64 --mkl=sequential build_ifort_mklseq_i8
+-  python setup.py --fc=ifort --int64 --mkl=parallel build_ifort_mklpar_i8
+-  python setup.py --fc=ifort --int64 --mkl=sequential build_ifort_mklseq_i8
 
-The DGESV (LAPACK); DGEMM (BLAS); DNRM2(BLAS) library routines called.
+The DGESV (LAPACK); DGEMM (BLAS) and DNRM2(BLAS) library routines called.
 
 The milias@lxir071.gsi.de interactive server
 --------------------------------------------
@@ -18,6 +18,7 @@ export MKL_DYNAMIC=false
 
 /bin/example 3000 1:
 ~~~~~~~~~~~~~~~~~~~
+
 ===  ======
 #     time
 ===  ======
@@ -28,10 +29,11 @@ seq  16.497
 8    21.709
 ===  ======
 
-/bin/example 7000 1
+/bin/example 7000 1:
 ~~~~~~~~~~~~~~~~~~~
 mkl=parallel, mkl_dynamic
 
+===  =======   =======
 #     false     true
 ===  =======   =======
 seq  205.269
@@ -45,6 +47,8 @@ The milias@login.grid.umb.sk cluster
 
 /bin/example 7000 1:
 ~~~~~~~~~~~~~~~~~~~~
+
+=== =======
 #    time
 === =======
 seq 144.247
