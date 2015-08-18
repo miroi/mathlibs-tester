@@ -3,8 +3,8 @@ Software performance
 
 - depending on the OpenMP MKL-threading
 
-./setup --fc=ifort --int64 --mkl=parallel build_ifort_mklpar_i8
-./setup --fc=ifort --int64 --mkl=sequenatial build_ifort_mklseq_i8
+python setup.py --fc=ifort --int64 --mkl=parallel build_ifort_mklpar_i8
+python setup.py --fc=ifort --int64 --mkl=sequential build_ifort_mklseq_i8
 
 The milias@lxir071.gsi.de interactive server
 --------------------------------------------
@@ -35,3 +35,9 @@ mkl=parallel, mkl_dynamic
 4    211.145   208.957
 8    225.354   226.346
 
+The milias@login.grid.umb.sk cluster
+------------------------------------
+
+
+
+--------------------------------------------

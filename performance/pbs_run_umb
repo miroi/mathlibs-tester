@@ -1,0 +1,66 @@
+#!/bin/bash
+
+#PBS -S /bin/bash
+#PBS -A UMB-ITMS-26110230082
+#PBS -N umbhpc
+### Declare myprogram non-rerunable
+#PBS -r n
+##PBS -l nodes=1
+#PBS -l nodes=1:ppn=12:old
+#PBS -l walltime=00:30:00
+#PBS -l mem=47g
+#PBS -j oe
+#PBS -q batch
+
+echo "Working host is: "; hostname -f
+source /mnt/apps/intel/bin/compilervars.sh intel64
+source /mnt/apps/pgi/environment.sh
+
+# libnumma for PGI
+export LD_LIBRARY_PATH=/home/milias/bin/lib64_libnuma:$LD_LIBRARY_PATH
+
+echo "My PATH=$PATH"
+echo "Running on host `hostname`"
+echo "Time is `date`"
+echo "Directory is `pwd`"
+echo "This jobs runs on the following processors:"
+echo `cat $PBS_NODEFILE`
+# Extract number of processors
+NPROCS_PBS=`wc -l < $PBS_NODEFILE`
+NPROCS=`cat /proc/cpuinfo | grep processor | wc -l`
+echo "This node has $NPROCS CPUs."
+echo "This node has $NPROCS_PBS CPUs allocated for PBS calculations."
+echo "PBS_SERVER=$PBS_SERVER"
+echo "PBS_NODEFILE=$PBS_NODEFILE"
+echo "PBS_O_QUEUE=$PBS_O_QUEUE"
+echo "PBS_O_WORKDIR=$PBS_O_WORKDIR"
+
+#export MKL_DOMAIN_NUM_THREADS="MKL_BLAS=$NPROCS"
+export OMP_NUM_THREADS=1
+export MKL_DYNAMIC="FALSE"
+export OMP_DYNAMIC="FALSE"
+
+EXEC_PAR=/home/milias/Work/qch/software/software_projects/mathlibs-tester/build_ifort_mklpar_i8/bin/example
+EXEC_SEQ=/home/milias/Work/qch/software/software_projects/mathlibs-tester/build_ifort_mklseq_i8/bin/example
+
+cd $PBS_O_WORKDIR
+
+#export MKL_NUM_THREADS=$NPROCS_PBS
+export MKL_NUM_THREADS=2
+echo "set MKL_NUM_THREADS=$MKL_NUM_THREADS"
+$EXEC_PAR 7000 1
+
+export MKL_NUM_THREADS=4
+echo "set MKL_NUM_THREADS=$MKL_NUM_THREADS"
+$EXEC_PAR 7000 1
+
+export MKL_NUM_THREADS=8
+echo "set MKL_NUM_THREADS=$MKL_NUM_THREADS"
+$EXEC_PAR 7000 1
+
+export MKL_NUM_THREADS=12
+echo "set MKL_NUM_THREADS=$MKL_NUM_THREADS"
+$EXEC_PAR 7000 1
+
+
+exit 0
