@@ -18,8 +18,7 @@ Run as
 where N is the size of the matrix, i is the print level (recommended 1).
 
 The @lxir071.gsi.de interactive server
---------------------------------------
-
+======================================
 Intel(R) Xeon(R) CPU L5506 @ 2.13GHz;  8 CPU 
 
 - export MKL_NUM_THREADS=#
@@ -53,7 +52,7 @@ seq  205.269
 ===  =======   =======
 
 The @login.grid.umb.sk cluster
-------------------------------
+==============================
 - Intel 12 cpu per node, 48GB RAM
 
 /bin/example 7000 1
@@ -69,4 +68,5 @@ seq 144.247
 8   153.020
 12  161.729
 === =======
+
 
