@@ -45,6 +45,11 @@ EXEC_SEQ=/home/milias/Work/qch/software/software_projects/mathlibs-tester/build_
 
 cd $PBS_O_WORKDIR
 
+# sequential
+$EXEC_SEQ 7000 1
+
+# parallel
+
 #export MKL_NUM_THREADS=$NPROCS_PBS
 export MKL_NUM_THREADS=2
 echo "set MKL_NUM_THREADS=$MKL_NUM_THREADS"
