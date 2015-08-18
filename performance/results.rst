@@ -1,5 +1,6 @@
-Software performance
-=====================
+=======================================
+The mathlibs-tester scaling performance
+=======================================
 
 depending on the OpenMP MKL-threading
 
@@ -9,7 +10,7 @@ depending on the OpenMP MKL-threading
 The DGESV (LAPACK); DGEMM (BLAS) and DNRM2(BLAS) library routines called.
 
 Run as
-~~~~~~
+^^^^^^
 ::
 
  /bin/example N i
@@ -17,7 +18,7 @@ Run as
 where N is the size of the matrix, i is the print level (recommended 1).
 
 The @lxir071.gsi.de interactive server
---------------------------------------------
+--------------------------------------
 
 Intel(R) Xeon(R) CPU L5506 @ 2.13GHz;  8 CPU 
 
@@ -52,8 +53,8 @@ seq  205.269
 ===  =======   =======
 
 The @login.grid.umb.sk cluster
-------------------------------------
-- Intel nodes per 12 cpu, 48GB RAM
+------------------------------
+- Intel 12 cpu per node, 48GB RAM
 
 /bin/example 7000 1
 ~~~~~~~~~~~~~~~~~~~~
