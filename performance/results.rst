@@ -17,8 +17,8 @@ Run as
 
 where N is the size of the matrix, i is the print level (recommended 1).
 
-The @lxir071.gsi.de interactive server
-======================================
+The lxir071.gsi.de interactive server
+=====================================
 Intel(R) Xeon(R) CPU L5506 @ 2.13GHz;  8 CPU 
 
 - export MKL_NUM_THREADS=#
@@ -37,9 +37,9 @@ seq  16.497
 8    3.397
 ===  ======
 
-The @login.grid.umb.sk cluster
-==============================
-Intel 12 cpu per node, 48GB RAM
+The hpcc.umb.sk SIVVP cluster
+=============================
+12 Intel CPU per node
 
 - export MKL_NUM_THREADS=#
 - export MKL_DYNAMIC=false
@@ -50,10 +50,10 @@ Intel 12 cpu per node, 48GB RAM
 === =======
 #    time
 === =======
-seq  ...
-2    ...
-4    ...
-8    ...
-12   ...
+seq  127.839
+2    66.642
+4    35.038
+8    18.428
+12   13.861
 === =======
 
