@@ -10,6 +10,15 @@ if(CMAKE_Fortran_COMPILER_ID MATCHES Intel)
     add_definitions(-DVAR_INTEL)
 endif()
 
+if(CMAKE_Fortran_COMPILER_ID MATCHES PGI OR CMAKE_Fortran_COMPILER_ID MATCHES
+Intel)
+    if (LAPACK_TYPE MATCHES ATLAS OR LAPACK_TYPE MATCHES SYSTEM_NATIVE OR
+BLAS_TYPE MATCHES ATLAS OR BLAS_TYPE MATCHES SYSTEM_NATIVE)
+        set (MATH_LIBS ${MATH_LIBS} -lgfortran)
+    endif()
+endif()
+
+
 add_executable(example example.F90)
 if(LAPACK_FOUND AND BLAS_FOUND)
     target_link_libraries(example ${MATH_LIBS})
