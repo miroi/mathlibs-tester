@@ -18,21 +18,22 @@ Usage:
   ./setup.py (-h | --help)
 
 Options:
-  --fc=<FC>                         Fortran compiler [default: gfortran].
-  --extra-fc-flags=<EXTRA_FCFLAGS>  Extra Fortran compiler flags [default: ''].
-  --int64                           Enable 64bit integers [default: False].
-  --blas=<BLAS>                     Detect and link BLAS library (auto or off) [default: auto].
-  --lapack=<LAPACK>                 Detect and link LAPACK library (auto or off) [default: auto].
-  --mkl=<MKL>                       Pass MKL flag to the Intel compiler and linker and skip BLAS/LAPACK detection (sequential, parallel, cluster, or off) [default: off].
-  --static                          Enable static linking [default: False].
-  --coverage                        Enable code coverage [default: False].
-  --explicit-libs=<LIBS>            Explicit linker specification for extra libraries passed directly to the linker [default: off].
-  --type=<TYPE>                     Set the CMake build type (debug, release, or relwithdeb) [default: release].
-  --generator=<STRING>              Set the CMake build system generator [default: Unix Makefiles].
-  --show                            Show CMake command and exit.
-  --cmake-options=<OPTIONS>         Define options to CMake [default: None].
-  <builddir>                        Build directory.
-  -h --help                         Show this screen.
+  --fc=<FC>                              Fortran compiler [default: gfortran].
+  --extra-fc-flags=<EXTRA_FCFLAGS>       Extra Fortran compiler flags [default: ''].
+  --int64                                Enable 64bit integers [default: False].
+  --blas=<BLAS>                          Detect and link BLAS library (auto or off) [default: auto].
+  --lapack=<LAPACK>                      Detect and link LAPACK library (auto or off) [default: auto].
+  --mkl=<MKL>                            Pass MKL flag to the Intel compiler and linker and skip BLAS/LAPACK detection (sequential, parallel, cluster, or off) [default: off].
+  --static                               Enable static linking [default: False].
+  --coverage                             Enable code coverage [default: False].
+  --explicit-libs=<LIBS>                 Explicit linker specification for extra libraries passed directly to the linker [default: off].
+  --type=<TYPE>                          Set the CMake build type (debug, release, or relwithdeb) [default: release].
+  --generator=<STRING>                   Set the CMake build system generator [default: Unix Makefiles].
+  --show                                 Show CMake command and exit.
+  --cmake-executable=<CMAKE_EXECUTABLE>  Set the CMake executable [default: cmake].
+  --cmake-options=<OPTIONS>              Define options to CMake [default: None].
+  <builddir>                             Build directory.
+  -h --help                              Show this screen.
 """
 
 
@@ -42,7 +43,7 @@ def gen_cmake_command(options, arguments):
     """
     command = []
     command.append('FC=%s' % arguments['--fc'])
-    command.append('cmake')
+    command.append('%s' % arguments['--cmake-executable'])
     command.append('-DEXTRA_FCFLAGS="%s"' % arguments['--extra-fc-flags'])
     command.append('-DENABLE_64BIT_INTEGERS=%s' % arguments['--int64'])
     command.append('-DENABLE_BLAS=%s' % arguments['--blas'])
