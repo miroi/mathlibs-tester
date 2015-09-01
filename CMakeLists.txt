@@ -22,9 +22,13 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR}/cmake/custom)
 
 # included cmake modules
 include(autocmake_fc)
+include(autocmake_cc)
 include(autocmake_GNU.Fortran)
 include(autocmake_Intel.Fortran)
 include(autocmake_PGI.Fortran)
+include(autocmake_GNU.C)
+include(autocmake_Intel.C)
+include(autocmake_PGI.C)
 include(autocmake_int64)
 include(autocmake_math_libs)
 include(autocmake_static_linking)
