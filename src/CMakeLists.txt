@@ -19,11 +19,23 @@ BLAS_TYPE MATCHES ATLAS OR BLAS_TYPE MATCHES SYSTEM_NATIVE)
 endif()
 
 
+if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+    #windows needs to find <lapacke.h> of openblas 
+    include_directories($ENV{PATH})
+else()
+    #ftravis-ci needs find <clapack.h> of ATLAS
+    include_directories(/usr/include/atlas)
+endif()
+
 add_executable(example example.F90)
+add_executable(example_c example_c.c)
+
 if(LAPACK_FOUND AND BLAS_FOUND)
     target_link_libraries(example ${MATH_LIBS})
+    target_link_libraries(example_c ${MATH_LIBS})
 elseif (EXPLICIT_LIBS)
     target_link_libraries(example ${EXPLICIT_LIBS})
+    target_link_libraries(example_c ${EXPLICIT_LIBS})
 else()
     message(FATAL_ERROR "LAPACK/BLAS libraries were not found for this project !")
 endif()
