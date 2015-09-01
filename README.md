@@ -29,13 +29,17 @@ Buildup and usage
 -----------------
 For example, utilize the commercial ifort compiler with MKL as the prefered library:
 ~~~
-python setup.py --fc=ifort --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL;OPENBLAS;SYSTEM_NATIVE' build_ifort
-cd build_ifort
+python setup.py --fc=ifort --cc=icc  --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL;OPENBLAS;SYSTEM_NATIVE' build_ifort_icc
+cd build_ifort_icc
 make all
 bin/example
+bin/example_c
 ~~~
-For more buildup examples, see this [testing script](https://github.com/miroi/mathlibs-tester/blob/master/cdash_scripts/hpcc_umb_runtest.bash). For the execution performance, see [here](https://github.com/miroi/mathlibs-tester/blob/master/performance/results.rst).
+
+- For more buildup examples, see this [testing script](https://github.com/miroi/mathlibs-tester/blob/master/cdash_scripts/hpcc_umb_runtest.bash).
+
+- For the execution performance, see [here](https://github.com/miroi/mathlibs-tester/blob/master/performance/results.rst).
 
 
-Finally, send me few bucks ;)
+Finally, send me few bucks, which will be used solely for donnations to various projects ;)
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5NJSDMSN88ZNQ)
