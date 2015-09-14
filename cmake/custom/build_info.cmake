@@ -2,15 +2,10 @@
 #
 # Creates build_info.h in the build directory.
 # This file can be included into sources to print
-# build information variables to the program output.
+# build information variables to the executable program output.
 #
 
 
-set(_c_compiler             "unknown")
-set(_c_compiler_flags       "unknown")
-set(_cxx_compiler           "unknown")
-set(_cxx_compiler_flags     "unknown")
-set(_static_linking         "unknown")
 set(_who_compiled           "unknown")
 set(_host                   "unknown")
 
@@ -49,6 +44,25 @@ set(_c_compiler_flags "unknown")
 if (CMAKE_C_FLAGS)
     set(_c_compiler_flags ${CMAKE_C_FLAGS})
     message("-- C compiler flags           : ${CMAKE_C_FLAGS}")
+endif()
+
+set(_cxx_compiler           "unknown")
+if (CMAKE_CXX_COMPILER)
+    set(_cxx_compiler ${CMAKE_CXX_COMPILER})
+    message("-- C++ compiler               : ${CMAKE_CXX_COMPILER}")
+endif()
+
+set(_cxx_compiler_flags     "unknown")
+if (CMAKE_CXX_FLAGS)
+    set(_cxx_compiler_flags ${CMAKE_CXX_FLAGS})
+    message("-- CXX compiler flags         : ${CMAKE_CXX_FLAGS}")
+endif()
+
+
+set(_static_linking         "unknown")
+if (CMAKE_SYSTEM_NAME)
+    set(_static_linking ${ENABLE_STATIC_LINKING})
+    message("-- Static linking           : ${ENABLE_STATIC_LINKING}")
 endif()
 
 set(_system_name            "unknown")

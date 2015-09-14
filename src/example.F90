@@ -17,10 +17,6 @@ program example
    character*5 :: arg1, arg2
    integer :: counti, countf, count_rate
 
-! include autocmake's generated files
-#include "git_info.h"
-#include "build_info.h"
-
 !Read input from the command line 
 
    nargs = iargc() 
@@ -46,6 +42,8 @@ program example
      !print *,'n=',n
      !print *,'verb=',verb
    endif
+
+   if (verb >=1 ) call print_info
 
    allocate(a(n,n),as(n,n))
    allocate(b(n,n),bs(n,n))
