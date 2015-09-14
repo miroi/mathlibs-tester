@@ -1,5 +1,5 @@
 include(test)
-#include(FindCompilerVersion)
+include(FindCompilerVersion)
 include(build_info)
 
 
