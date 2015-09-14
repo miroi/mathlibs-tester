@@ -7,6 +7,8 @@
 import os
 import sys
 
+sys.path.append('cmake/lib/docopt')
+
 sys.path.append('cmake/lib')
 from config import configure
 import docopt
@@ -31,7 +33,7 @@ Options:
   --generator=<STRING>                   Set the CMake build system generator [default: Unix Makefiles].
   --show                                 Show CMake command and exit.
   --cmake-executable=<CMAKE_EXECUTABLE>  Set the CMake executable [default: cmake].
-  --cmake-options=<OPTIONS>              Define options to CMake [default: None].
+  --cmake-options=<STRING>               Define options to CMake [default: ''].
   <builddir>                             Build directory.
   -h --help                              Show this screen.
 """
@@ -57,7 +59,7 @@ def gen_cmake_command(options, arguments):
     command.append('-DEXPLICIT_LIBS=%s' % arguments['--explicit-libs'].strip())
     command.append('-DCMAKE_BUILD_TYPE=%s' % arguments['--type'])
     command.append('-G "%s"' % arguments['--generator'])
-    if(arguments['--cmake-options']):
+    if arguments['--cmake-options'] != "''":
         command.append('%s' % arguments['--cmake-options'])
 
     return ' '.join(command)
