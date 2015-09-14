@@ -17,6 +17,10 @@ program example
    character*5 :: arg1, arg2
    integer :: counti, countf, count_rate
 
+! include autocmake's generated files
+#include "git_info.h"
+#include "build_info.h"
+
 !Read input from the command line 
 
    nargs = iargc() 

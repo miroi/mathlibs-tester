@@ -18,6 +18,8 @@ BLAS_TYPE MATCHES ATLAS OR BLAS_TYPE MATCHES SYSTEM_NATIVE)
     endif()
 endif()
 
+# provide path for autocmake's generated include files
+include_directories(${PROJECT_BINARY_DIR})
 
 add_executable(example example.F90)
 if(LAPACK_FOUND AND BLAS_FOUND)
