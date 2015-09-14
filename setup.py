@@ -22,6 +22,10 @@ Usage:
 Options:
   --fc=<FC>                              Fortran compiler [default: gfortran].
   --extra-fc-flags=<EXTRA_FCFLAGS>       Extra Fortran compiler flags [default: ''].
+  --cc=<CC>                              C compiler [default: gcc].
+  --extra-cc-flags=<EXTRA_CFLAGS>        Extra C compiler flags [default: ''].
+  --cxx=<CXX>                            C++ compiler [default: g++].
+  --extra-cxx-flags=<EXTRA_CXXFLAGS>     Extra C++ compiler flags [default: ''].
   --int64                                Enable 64bit integers [default: False].
   --blas=<BLAS>                          Detect and link BLAS library (auto or off) [default: auto].
   --lapack=<LAPACK>                      Detect and link LAPACK library (auto or off) [default: auto].
@@ -45,8 +49,12 @@ def gen_cmake_command(options, arguments):
     """
     command = []
     command.append('FC=%s' % arguments['--fc'])
+    command.append('CC=%s' % arguments['--cc'])
+    command.append('CXX=%s' % arguments['--cxx'])
     command.append('%s' % arguments['--cmake-executable'])
     command.append('-DEXTRA_FCFLAGS="%s"' % arguments['--extra-fc-flags'])
+    command.append('-DEXTRA_CFLAGS="%s"' % arguments['--extra-cc-flags'])
+    command.append('-DEXTRA_CXXFLAGS="%s"' % arguments['--extra-cxx-flags'])
     command.append('-DENABLE_64BIT_INTEGERS=%s' % arguments['--int64'])
     command.append('-DENABLE_BLAS=%s' % arguments['--blas'])
     command.append('-DENABLE_LAPACK=%s' % arguments['--lapack'])
