@@ -23,6 +23,7 @@
 #define STATIC_LINKING   "@_static_linking@"
 
 #define MATH_LIBS   "@_math_libs@"
+#define EXPLICIT_LIBS   "@_explicit_libs@"
 
 #define WHO_COMPILED "@_who_compiled@"
 #define HOST         "@_host@"

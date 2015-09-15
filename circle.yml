@@ -33,7 +33,7 @@ test:
         - python ./setup.py  --fc=gfortran --cmake-options='--no-warn-unused-cli -DMATH_LIB_SEARCH_ORDER="OPENBLAS;ATLAS;SYSTEM_NATIVE" -D BUILDNAME="circle_gfortran" ' || true
 # build with make, build with ctest makes impossible to submit more test commands into one entry on dashboard
         - make VERBOSE=1: { pwd: build }
-        - make VERBOSE=0 Experimental: { pwd: build }
+        - make Experimental: { pwd: build }
 # ldd - show dirac.x dependencies
         - ldd bin/example: { pwd: build }
 # run tests

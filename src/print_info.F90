@@ -7,6 +7,8 @@ use iso_c_binding
 interface
   subroutine print_mathlibs() bind(c) 
   end subroutine print_mathlibs
+  subroutine print_explicitlibs() bind(c) 
+  end subroutine print_explicitlibs
 end interface
 
  print *,"--------- Configuration and build info ---------------"
@@ -21,8 +23,9 @@ end interface
  print *,"    Fortran compiler flags : ",FORTRAN_COMPILER_FLAGS
  print *,"            Static linking : ",STATIC_LINKING
 
- ! use the C routine to print long MATH_LIBS string
+ ! use the C routine to print long MATH_LIBS, EXPLICIT_LIBS strings
  call print_mathlibs
+ call print_explicitlibs
 
  print *,"      Last git commit hash : ",GIT_COMMIT_HASH
  print *,"    Last git commit author : ",GIT_COMMIT_AUTHOR
