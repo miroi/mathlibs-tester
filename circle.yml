@@ -23,7 +23,7 @@ test:
         - sudo apt-get update
         - sudo apt-get autoclean
         - sudo apt-get clean
-        - sudo apt-get install libatlas-base-dev libatlas-dev
+        - sudo apt-get install libatlas-base-dev libatlas-dev python
         - sudo apt-get install libopenblas-base
         - sudo apt-get install libopenblas-dev
 # show info about available processors
