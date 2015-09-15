@@ -7,12 +7,12 @@ install:
     # compilers
   - sudo apt-get install g++ cmake gfortran
     # math libraries
-  - sudo apt-get install libatlas-base-dev libatlas-dev
-  - sudo apt-get install libopenblas-dev libopenblas-base
+ # - sudo apt-get install libatlas-base-dev libatlas-dev
+  - sudo apt-get install liblapack-dev libopenblas-dev libopenblas-base
     # PEP8 and py.test
   - sudo pip install pytest pep8
 script:
-  - python ./setup.py --fc=gfortran --cmake-options='--no-warn-unused-cli -DMATH_LIB_SEARCH_ORDER="OPENBLAS;ATLAS;SYSTEM_NATIVE;MKL"  -D BUILDNAME="travis"' || true
+  - python ./setup.py --fc=gfortran --cmake-options='--no-warn-unused-cli -DMATH_LIB_SEARCH_ORDER="OPENBLAS;ATLAS;SYSTEM_NATIVE;MKL"  -D BUILDNAME="travis_gfortran"' --explicit-libs="-L/usr/lib -llapack" || true
   - cd build
   - make VERBOSE=1 Experimental
     # show dependencies
