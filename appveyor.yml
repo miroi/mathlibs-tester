@@ -67,5 +67,5 @@ test_script:
 # run tests
 - python setup.py --generator="MinGW Makefiles" --cmake-options="--no-warn-unused-cli -D BUILDNAME='appveyor_gfortran' " --blas=off --lapack=off --explicit-libs="C:/software/OpenBLAS-v0.2.14-Win64-int32/bin/libopenblas.dll"
 - cd build
-- mingw32-make Experimental
+- mingw32-make VERBOSE=1 Experimental
 - bin\example.exe

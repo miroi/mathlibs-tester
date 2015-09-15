@@ -12,9 +12,9 @@ install:
     # PEP8 and py.test
   - sudo pip install pytest pep8
 script:
-  - python ./setup.py --fc=gfortran --cmake-options='--no-warn-unused-cli -DMATH_LIB_SEARCH_ORDER="OPENBLAS;ATLAS;SYSTEM_NATIVE;MKL"' || true
+  - python ./setup.py --fc=gfortran --cmake-options='--no-warn-unused-cli -DMATH_LIB_SEARCH_ORDER="OPENBLAS;ATLAS;SYSTEM_NATIVE;MKL"  -D BUILDNAME="travis"' || true
   - cd build
-  - make VERBOSE=1
+  - make VERBOSE=1 Experimental
     # show dependencies
   - ldd bin/example
     #  run test (should end with 0)

@@ -10,6 +10,6 @@ build:
         code: |
           python ./setup.py --fc=gfortran  --cmake-options="--no-warn-unused-cli -D BUILDNAME='wercker_gfortran' " || true
           cd build
-          make Experimental
+          make VERBOSE=1 Experimental
           ldd bin/example
           bin/example 100 1
