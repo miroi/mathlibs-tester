@@ -3,6 +3,12 @@ subroutine print_info
 #include "git_info.h"
 #include "build_info.h"
 
+use iso_c_binding
+interface
+  subroutine print_mathlibs() bind(c) 
+  end subroutine print_mathlibs
+end interface
+
  print *,"--------- Configuration and build info ---------------"
 
  print *,"     Operating system      : ",SYSTEM
@@ -14,6 +20,9 @@ subroutine print_info
  print *,"          Fortran compiler : ",FORTRAN_COMPILER
  print *,"    Fortran compiler flags : ",FORTRAN_COMPILER_FLAGS
  print *,"            Static linking : ",STATIC_LINKING
+
+ ! use the C routine to print long MATH_LIBS string
+ call print_mathlibs
 
  print *,"      Last git commit hash : ",GIT_COMMIT_HASH
  print *,"    Last git commit author : ",GIT_COMMIT_AUTHOR

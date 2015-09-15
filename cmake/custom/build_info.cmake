@@ -96,6 +96,18 @@ if (CMAKE_SYSTEM_NAME)
     message("-- Static linking           : ${ENABLE_STATIC_LINKING}")
 endif()
 
+#set(_static_linking         "unknown")
+if (CMAKE_EXE_LINKER_FLAGS)
+    #set(_static_linking ${ENABLE_STATIC_LINKING})
+    #message("-- Linker flags             : ${CMAKE_EXE_LINKER_FLAGS}")
+endif()
+
+set(_math_libs         "unknown")
+if (MATH_LIBS)
+    set(_math_libs ${MATH_LIBS})
+    message("-- Mathematical libraries   : ${MATH_LIBS}")
+endif()
+
 
 # generate the build_info.h include file with defined set of variables
 configure_file(
