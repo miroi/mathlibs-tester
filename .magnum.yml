@@ -23,7 +23,7 @@ script:
     - lscpu
     #- echo " number of procs at this machine : $(cat /proc/cpuinfo | grep processor | wc -l)"
 # configure and build
-    - python ./setup.py --fc=gfortran --cmake-options="--no-warn-unused-cli -DMATH_LIB_SEARCH_ORDER='SYSTEM_NATIVE;ATLAS' -D BUILDNAME='magnum_gfortran'"
+    - python ./setup.py --fc=gfortran --cmake-options="--no-warn-unused-cli -DMATH_LIB_SEARCH_ORDER='SYSTEM_NATIVE;ATLAS' -D BUILDNAME='magnum_gfortran'" || true
     - cd build
     - make VERBOSE=1 Experimental
     - ldd bin/example
