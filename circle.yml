@@ -30,7 +30,7 @@ test:
         - lscpu
     override:
 # configure, build optimized code with OpenBLAS and run the test
-        - python ./setup.py  --cmake-options="--no-warn-unused-cli" --fc=gfortran --cmake-options='-DMATH_LIB_SEARCH_ORDER="OPENBLAS;ATLAS;SYSTEM_NATIVE" -D BUILDNAME="circle_gfortran" '
+        - python ./setup.py  --fc=gfortran --cmake-options='--no-warn-unused-cli -DMATH_LIB_SEARCH_ORDER="OPENBLAS;ATLAS;SYSTEM_NATIVE" -D BUILDNAME="circle_gfortran" '
 # build with make, build with ctest makes impossible to submit more test commands into one entry on dashboard
         - make VERBOSE=1 Experimental: { pwd: build }
 # ldd - show dirac.x dependencies

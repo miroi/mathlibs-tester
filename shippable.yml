@@ -37,7 +37,7 @@ before_script:
     
 # configure, build optimized code and run 
 script:
-    - python ./setup.py --cmake-options="--no-warn-unused-cli" --fc=gfortran --cmake-options='-DMATH_LIB_SEARCH_ORDER="OPENBLAS;ATLAS;SYSTEM_NATIVE;MKL" -D BUILDNAME="shippable_gfortran"'
+    - python ./setup.py --fc=gfortran --cmake-options='--no-warn-unused-cli -DMATH_LIB_SEARCH_ORDER="OPENBLAS;ATLAS;SYSTEM_NATIVE;MKL" -D BUILDNAME="shippable_gfortran"'
     - cd build
     - make VERBOSE=1 Experimental
 # ldd : show dependencies
