@@ -25,6 +25,7 @@ script:
 # configure and build
     - python ./setup.py --fc=gfortran --cmake-options="--no-warn-unused-cli -DMATH_LIB_SEARCH_ORDER='SYSTEM_NATIVE;ATLAS' -D BUILDNAME='magnum_gfortran'" || true
     - cd build
-    - make VERBOSE=1 Experimental
+    - make VERBOSE=1
+    - make VERBOSE=0 Experimental
     - ldd bin/example
     - bin/example
