@@ -8,8 +8,8 @@ build:
     - script:
         name: run setup configuration script
         code: |
-          python ./setup.py --fc=gfortran  --cmake-options="--no-warn-unused-cli -D BUILDNAME='wercker_gfortran' "
+          python ./setup.py --fc=gfortran  --cmake-options="--no-warn-unused-cli -D BUILDNAME='wercker_gfortran' " || true
           cd build
-          make VERBOSE=1 Experimental
+          make Experimental
           ldd bin/example
           bin/example 100 1

@@ -12,7 +12,7 @@ install:
     # PEP8 and py.test
   - sudo pip install pytest pep8
 script:
-  - python ./setup.py --fc=gfortran --cmake-options='--no-warn-unused-cli -DMATH_LIB_SEARCH_ORDER="OPENBLAS;ATLAS;SYSTEM_NATIVE;MKL"' build
+  - python ./setup.py --fc=gfortran --cmake-options='--no-warn-unused-cli -DMATH_LIB_SEARCH_ORDER="OPENBLAS;ATLAS;SYSTEM_NATIVE;MKL"' || true
   - cd build
   - make VERBOSE=1
     # show dependencies
