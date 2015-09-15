@@ -3,14 +3,21 @@ subroutine print_info
 #include "git_info.h"
 #include "build_info.h"
 
- print *,"--------- Configration and build info ---------------"
- print *,"      last git commit hash:",GIT_COMMIT_HASH
- print *,"    last git commit author:",GIT_COMMIT_AUTHOR
- print *,"      last git commit date:",GIT_COMMIT_DATE
+ print *,"--------- Configuration and build info ---------------"
 
- print *,"          Fortran compiler :",FORTRAN_COMPILER
- print *,"    Fortran compiler flags :",FORTRAN_COMPILER_FLAGS
- print *,"            static linking :",STATIC_LINKING
+ print *,"     Operating system      : ",SYSTEM
+ print *,"     CMake version         : ",CMAKE_VERSION
+ print *,"     CMake generator       : ",CMAKE_GENERATOR
+
+ print *,"     CMake build type      : ",CMAKE_BUILD_TYPE
+
+ print *,"          Fortran compiler : ",FORTRAN_COMPILER
+ print *,"    Fortran compiler flags : ",FORTRAN_COMPILER_FLAGS
+ print *,"            Static linking : ",STATIC_LINKING
+
+ print *,"      Last git commit hash : ",GIT_COMMIT_HASH
+ print *,"    Last git commit author : ",GIT_COMMIT_AUTHOR
+ print *,"      Last git commit date : ",GIT_COMMIT_DATE
 
  print *,"---------------------------------------------------------"
 
