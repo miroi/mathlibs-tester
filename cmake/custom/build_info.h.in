@@ -10,14 +10,17 @@
 
 #define FORTRAN_COMPILER_ID "@_fortran_compiler_id@"
 #define FORTRAN_COMPILER "@_fortran_compiler@"
+#define FORTRAN_COMPILER_VERSION "@_python_fortran_version@"
 #define FORTRAN_COMPILER_FLAGS "@_fortran_compiler_flags@"
 
 #define C_COMPILER_ID "@_c_compiler_id@"
 #define C_COMPILER "@_c_compiler@"
+#define C_COMPILER_VERSION "@_python_c_version@"
 #define C_COMPILER_FLAGS "@_c_compiler_flags@"
 
 #define CXX_COMPILER_ID "@_cxx_compiler_id@"
 #define CXX_COMPILER "@_cxx_compiler@"
+#define CXX_COMPILER_VERSION "@_python_cxx_version@"
 #define CXX_COMPILER_FLAGS "@_cxx_compiler_flags@"
 
 #define STATIC_LINKING   "@_static_linking@"

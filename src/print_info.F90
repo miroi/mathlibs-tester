@@ -20,6 +20,7 @@ end interface
  print *,"     CMake build type      : ",CMAKE_BUILD_TYPE
 
  print *,"          Fortran compiler : ",FORTRAN_COMPILER
+ print *,"  Fortran compiler version : ",FORTRAN_COMPILER_VERSION
  print *,"    Fortran compiler flags : ",FORTRAN_COMPILER_FLAGS
  print *,"            Static linking : ",STATIC_LINKING
 
@@ -27,6 +28,7 @@ end interface
  call print_mathlibs
  call print_explicitlibs
 
+ print *,"            Git branch     : ",GIT_BRANCH
  print *,"      Last git commit hash : ",GIT_COMMIT_HASH
  print *,"    Last git commit author : ",GIT_COMMIT_AUTHOR
  print *,"      Last git commit date : ",GIT_COMMIT_DATE
