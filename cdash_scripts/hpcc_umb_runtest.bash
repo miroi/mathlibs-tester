@@ -44,12 +44,12 @@ echo "cloning the mathlibs-tester ..."
 git clone git@github.com:miroi/mathlibs-tester.git
 
 cd mathlibs-tester
-cd cmake
-python update.py --self
-python update.py ..
 
+#cd cmake
+#python update.py --self
+#python update.py ..
 # return to the main directory
-cd ..
+#cd ..
 
 ###################################
 #
