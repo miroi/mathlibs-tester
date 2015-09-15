@@ -23,7 +23,13 @@ include_directories(${PROJECT_BINARY_DIR})
 
 add_executable(example example.F90 print_info.F90 print_info.c)
 if(LAPACK_FOUND AND BLAS_FOUND)
-    target_link_libraries(example ${MATH_LIBS})
+    # check if extra libs present
+    if (EXPLICIT_LIBS)
+        target_link_libraries(example ${MATH_LIBS} ${EXPLICIT_LIBS})
+    else()
+        target_link_libraries(example ${MATH_LIBS})
+    endif()
+
 elseif (EXPLICIT_LIBS)
     target_link_libraries(example ${EXPLICIT_LIBS})
 else()
