@@ -29,7 +29,6 @@ Options:
   --blas=<BLAS>                          Detect and link BLAS library (auto or off) [default: auto].
   --lapack=<LAPACK>                      Detect and link LAPACK library (auto or off) [default: auto].
   --mkl=<MKL>                            Pass MKL flag to the Intel compiler and linker and skip BLAS/LAPACK detection (sequential, parallel, cluster, or off) [default: off].
-  --static                               Enable static linking [default: False].
   --python=<PYTHON_INTERPRETER>          The Python interpreter (development version) to use. [default: ''].
   --coverage                             Enable code coverage [default: False].
   --explicit-libs=<LIBS>                 Explicit linker specification for extra libraries passed directly to the linker [default: off].
@@ -62,7 +61,6 @@ def gen_cmake_command(options, arguments):
     command.append('-DMATH_LIB_SEARCH_ORDER="MKL;ESSL;ATLAS;ACML;SYSTEM_NATIVE"')
     command.append('-DBLAS_LANG=Fortran')
     command.append('-DLAPACK_LANG=Fortran')
-    command.append('-DENABLE_STATIC_LINKING=%s' % arguments['--static'])
     command.append('-DPYTHON_INTERPRETER="%s"' % arguments['--python'])
     command.append('-DENABLE_CODE_COVERAGE=%s' % arguments['--coverage'])
     command.append('-DEXPLICIT_LIBS=%s' % arguments['--explicit-libs'].strip())
