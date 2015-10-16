@@ -59,7 +59,7 @@ cd mathlibs-tester
 
 
 BUILD=build_gfortran_atlas_dynamic
-python ./setup.py --fc=gfortran  --cmake-options="-DMATH_LIB_SEARCH_ORDER=ATLAS -D BUILDNAME='HPC-UMB_gfortran_atlas_dynamic' " $BUILD
+python ./setup --fc=gfortran  --cmake-options="-DMATH_LIB_SEARCH_ORDER=ATLAS -D BUILDNAME='HPC-UMB_gfortran_atlas_dynamic' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -69,7 +69,7 @@ make Experimental
 cd ..
 
 BUILD=build_gfortran_atlas_static
-python ./setup.py --fc=gfortran --static  --cmake-options="-DMATH_LIB_SEARCH_ORDER=ATLAS -D BUILDNAME='HPC-UMB_gfortran_atlas_static' " $BUILD
+python ./setup --fc=gfortran --static  --cmake-options="-DMATH_LIB_SEARCH_ORDER=ATLAS -D BUILDNAME='HPC-UMB_gfortran_atlas_static' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -79,7 +79,7 @@ make Experimental
 cd ..
 
 BUILD=build_gfortran_system_native_dynamic
-python ./setup.py --fc=gfortran  --cmake-options="-DMATH_LIB_SEARCH_ORDER=SYSTEM_NATIVE -D BUILDNAME='HPC-UMB_gfortran_systemnative_dynamic' " $BUILD
+python ./setup --fc=gfortran  --cmake-options="-DMATH_LIB_SEARCH_ORDER=SYSTEM_NATIVE -D BUILDNAME='HPC-UMB_gfortran_systemnative_dynamic' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -90,7 +90,7 @@ cd ..
 
 
 BUILD=build_gfortran_system_native_static
-python ./setup.py --fc=gfortran --static  --cmake-options="-DMATH_LIB_SEARCH_ORDER=SYSTEM_NATIVE -D BUILDNAME='HPC-UMB_gfortran_systemnative_static' " $BUILD
+python ./setup --fc=gfortran --static  --cmake-options="-DMATH_LIB_SEARCH_ORDER=SYSTEM_NATIVE -D BUILDNAME='HPC-UMB_gfortran_systemnative_static' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -101,7 +101,7 @@ cd ..
 
 
 BUILD=build_gfortran_openblas_systemnative_dynamic
-python ./setup.py --fc=gfortran  --cmake-options="-DMATH_LIB_SEARCH_ORDER='OPENBLAS;SYSTEM_NATIVE' -D BUILDNAME='HPC-UMB_gfortran_openblas_sysnative_dynamic' " $BUILD
+python ./setup --fc=gfortran  --cmake-options="-DMATH_LIB_SEARCH_ORDER='OPENBLAS;SYSTEM_NATIVE' -D BUILDNAME='HPC-UMB_gfortran_openblas_sysnative_dynamic' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -112,7 +112,7 @@ cd ..
 
 
 BUILD=build_gfortran_openblas_systemnative_static
-python ./setup.py --static  --fc=gfortran  --cmake-options="-DMATH_LIB_SEARCH_ORDER='OPENBLAS;SYSTEM_NATIVE' -D BUILDNAME='HPC-UMB_gfortran_openblas_sysnative_static' " $BUILD
+python ./setup --static  --fc=gfortran  --cmake-options="-DMATH_LIB_SEARCH_ORDER='OPENBLAS;SYSTEM_NATIVE' -D BUILDNAME='HPC-UMB_gfortran_openblas_sysnative_static' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -130,7 +130,7 @@ cd ..
 #######################################################
 
 BUILD=build_ifort_mkl_int64_dynamic
-python ./setup.py --fc=ifort  --int64 --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_ifort_mkl_i8_dynamic' " $BUILD
+python ./setup --fc=ifort  --int64 --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_ifort_mkl_i8_dynamic' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -140,7 +140,7 @@ make Experimental
 cd ..
 
 BUILD=build_ifort_mkl_int64_static
-python ./setup.py --static --fc=ifort  --int64 --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_ifort_mkl_i8_static' " $BUILD
+python ./setup --static --fc=ifort  --int64 --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_ifort_mkl_i8_static' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -150,7 +150,7 @@ make Experimental
 cd ..
 
 BUILD=build_ifort_mkl_dynamic
-python ./setup.py --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_ifort_mkl_dynamic' " $BUILD
+python ./setup --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_ifort_mkl_dynamic' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -160,7 +160,7 @@ make Experimental
 cd ..
 
 BUILD=build_ifort_mkl_static
-python ./setup.py --static  --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_ifort_mkl_static' " $BUILD
+python ./setup --static  --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_ifort_mkl_static' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -171,7 +171,7 @@ cd ..
 
 
 BUILD=build_ifort_atlas_dynamic
-python ./setup.py --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='ATLAS' -D BUILDNAME='HPC-UMB_ifort_atlas_dynamic' " $BUILD
+python ./setup --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='ATLAS' -D BUILDNAME='HPC-UMB_ifort_atlas_dynamic' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -182,7 +182,7 @@ cd ..
 
 
 BUILD=build_ifort_atlas_static
-python ./setup.py --static --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='ATLAS' -D BUILDNAME='HPC-UMB_ifort_atlas_static' " $BUILD
+python ./setup --static --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='ATLAS' -D BUILDNAME='HPC-UMB_ifort_atlas_static' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -193,7 +193,7 @@ cd ..
 
 
 BUILD=build_ifort_systemnative_dynamic
-python ./setup.py --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='SYSTEM_NATIVE' -D BUILDNAME='HPC-UMB_ifort_systemnative_dynamic' " $BUILD
+python ./setup --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='SYSTEM_NATIVE' -D BUILDNAME='HPC-UMB_ifort_systemnative_dynamic' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -203,7 +203,7 @@ make Experimental
 cd ..
 
 BUILD=build_ifort_systemnative_static
-python ./setup.py --static --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='SYSTEM_NATIVE' -D BUILDNAME='HPC-UMB_ifort_systemnative_static' " $BUILD
+python ./setup --static --fc=ifort  --cmake-options="-DMATH_LIB_SEARCH_ORDER='SYSTEM_NATIVE' -D BUILDNAME='HPC-UMB_ifort_systemnative_static' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -219,7 +219,7 @@ cd ..
 ######################################################################
 
 BUILD=build_pgf90_mkl_int64_dynamic
-python ./setup.py --fc=pgf90  --int64 --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_pgf90_mkl_i8_dynamic' " $BUILD
+python ./setup --fc=pgf90  --int64 --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_pgf90_mkl_i8_dynamic' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -229,7 +229,7 @@ make Experimental
 cd ..
 
 BUILD=build_pgf90_mkl_int64_static
-python ./setup.py --fc=pgf90  --int64 --static --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_pgf90_mkl_i8_static' " $BUILD
+python ./setup --fc=pgf90  --int64 --static --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_pgf90_mkl_i8_static' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -239,7 +239,7 @@ make Experimental
 cd ..
 
 BUILD=build_pgf90_mkl_dynamic
-python ./setup.py --fc=pgf90  --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_pgf90_mkl_dynamic' " $BUILD
+python ./setup --fc=pgf90  --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_pgf90_mkl_dynamic' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -250,7 +250,7 @@ cd ..
 
 
 BUILD=build_pgf90_mkl_static
-python ./setup.py --fc=pgf90 --static  --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_pgf90_mkl_static' " $BUILD
+python ./setup --fc=pgf90 --static  --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL' -D BUILDNAME='HPC-UMB_pgf90_mkl_static' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -261,7 +261,7 @@ cd ..
 
 
 BUILD=build_pgf90_atlas_dynamic
-python ./setup.py --fc=pgf90  --cmake-options="-DMATH_LIB_SEARCH_ORDER='ATLAS;MKL' -D BUILDNAME='HPC-UMB_pgf90_atlas_dynamic' " $BUILD
+python ./setup --fc=pgf90  --cmake-options="-DMATH_LIB_SEARCH_ORDER='ATLAS;MKL' -D BUILDNAME='HPC-UMB_pgf90_atlas_dynamic' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -272,7 +272,7 @@ cd ..
 
 
 BUILD=build_pgf90_atlas_static
-python ./setup.py --fc=pgf90 --static --cmake-options="-DMATH_LIB_SEARCH_ORDER='ATLAS;MKL' -D BUILDNAME='HPC-UMB_pgf90_atlas_static' " $BUILD
+python ./setup --fc=pgf90 --static --cmake-options="-DMATH_LIB_SEARCH_ORDER='ATLAS;MKL' -D BUILDNAME='HPC-UMB_pgf90_atlas_static' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -283,7 +283,7 @@ cd ..
 
 
 BUILD=build_pgf90_systemnative_dynamic
-python ./setup.py --fc=pgf90  --cmake-options="-DMATH_LIB_SEARCH_ORDER='SYSTEM_NATIVE;ATLAS;MKL' -D BUILDNAME='HPC-UMB_pgf90_systemnative_dynamic' " $BUILD
+python ./setup --fc=pgf90  --cmake-options="-DMATH_LIB_SEARCH_ORDER='SYSTEM_NATIVE;ATLAS;MKL' -D BUILDNAME='HPC-UMB_pgf90_systemnative_dynamic' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
@@ -293,7 +293,7 @@ make Experimental
 cd ..
 
 BUILD=build_pgf90_systemnative_static
-python ./setup.py --fc=pgf90 --static --cmake-options="-DMATH_LIB_SEARCH_ORDER='SYSTEM_NATIVE;ATLAS;MKL' -D BUILDNAME='HPC-UMB_pgf90_systemnative_dynamic' " $BUILD
+python ./setup --fc=pgf90 --static --cmake-options="-DMATH_LIB_SEARCH_ORDER='SYSTEM_NATIVE;ATLAS;MKL' -D BUILDNAME='HPC-UMB_pgf90_systemnative_dynamic' " $BUILD
 cd $BUILD
 make VERBOSE=1
 ls -lt bin/example
