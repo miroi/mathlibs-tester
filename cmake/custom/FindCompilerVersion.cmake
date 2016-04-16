@@ -103,7 +103,7 @@ if(CMAKE_C_COMPILER_VERSION)
 	# if CMake variable is defined and not empty (CMake 3.0) then it must begins with version string from Python (so they are equal)   
     string(REGEX MATCH "^${PYTHON_C_VERSION}" CMAKE_C_VERSION "${CMAKE_C_COMPILER_VERSION}")
 	if(NOT (CMAKE_C_VERSION VERSION_EQUAL PYTHON_C_VERSION))
-		message(WARNING 
+		message(STATUS 
         "Versions from CMake variable (${CMAKE_C_COMPILER_VERSION}) and Python script (${PYTHON_C_VERSION}) for C compiler are not equal!")
 	endif()
 	
@@ -146,13 +146,13 @@ if(CMAKE_Fortran_COMPILER_VERSION)
 	# if CMake variable is defined and not empty (CMake 3.0) then it must begins with version string from Python (so they are equal)   
     string(REGEX MATCH "^${PYTHON_Fortran_VERSION}" CMAKE_Fortran_VERSION "${CMAKE_Fortran_COMPILER_VERSION}")
 	if(NOT (CMAKE_Fortran_VERSION VERSION_EQUAL PYTHON_Fortran_VERSION))
-		message(WARNING 
+		message(STATUS 
         "Versions from CMake variable (${CMAKE_Fortran_COMPILER_VERSION}) and Python script (${PYTHON_Fortran_VERSION}) for Fortran compiler are not equal!")
 	endif()
 	
     # and available version of compiler must be greater or equal than minimum required version
 	if(NOT (CMAKE_Fortran_COMPILER_VERSION VERSION_GREATER REQUIRED_Fortran OR CMAKE_Fortran_COMPILER_VERSION VERSION_EQUAL REQUIRED_Fortran))
-		message(WARNING 
+		message(STATUS
         "Not supported version of Fortran compiler. Found: ${CMAKE_Fortran_COMPILER_VERSION}, Required: ${REQUIRED_Fortran}")
 	endif()
 else()
