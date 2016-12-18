@@ -1,0 +1,45 @@
+# CMakeLists.txt and setup.py will be generated from this file
+# see: http://autocmake.readthedocs.org/en/latest/developers/configuration.html
+
+# uncomment the following two lines and set the project name
+[project]
+name: mathlibs-tester
+min_cmake_version: 2.8
+
+url_root: https://github.com/coderefinery/autocmake/raw/master/
+
+modules:
+- compilers:
+  - source:
+    - '%(url_root)modules/fc.cmake'
+    - '%(url_root)modules/cc.cmake'
+    - '%(url_root)modules/cxx.cmake'
+- flags:
+  - source:
+    - '%(url_root)compilers/GNU.Fortran.cmake'
+    - '%(url_root)compilers/GNU.C.cmake'
+    - '%(url_root)compilers/GNU.CXX.cmake'
+
+    - '%(url_root)compilers/Intel.Fortran.cmake'
+    - '%(url_root)compilers/Intel.C.cmake'
+    - '%(url_root)compilers/Intel.CXX.cmake'
+
+    - '%(url_root)compilers/PGI.Fortran.cmake'
+    - '%(url_root)compilers/PGI.C.cmake'
+    - '%(url_root)compilers/PGI.CXX.cmake'
+
+    - '%(url_root)compilers/XL.Fortran.cmake'
+    - '%(url_root)compilers/XL.C.cmake'
+    - '%(url_root)compilers/XL.CXX.cmake'
+
+- plugins:
+  - source:
+    - '%(url_root)modules/math_libs.cmake'
+    - '%(url_root)modules/ccache.cmake'
+    - '%(url_root)modules/definitions.cmake'
+    - '%(url_root)modules/code_coverage.cmake'
+    - '%(url_root)modules/safeguards.cmake'
+    - '%(url_root)modules/default_build_paths.cmake'
+    - '%(url_root)modules/src.cmake'
+    - '%(url_root)modules/googletest.cmake'
+
