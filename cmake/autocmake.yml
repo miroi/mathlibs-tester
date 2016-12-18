@@ -1,8 +1,10 @@
 # CMakeLists.txt and setup.py will be generated from this file
 # see: http://autocmake.readthedocs.org/en/latest/developers/configuration.html
 
-# uncomment the following two lines and set the project name
-[project]
+#
+# Pack with all modules from autocmake to test them !
+#
+
 name: mathlibs-tester
 min_cmake_version: 2.8
 
