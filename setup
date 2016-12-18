@@ -62,7 +62,6 @@ def gen_cmake_command(options, arguments):
     command.append('-DUSE_CCACHE={0}'.format(arguments['--ccache']))
     command.append('-DPREPROCESSOR_DEFINITIONS="{0}"'.format(arguments['--add-definitions']))
     command.append('-DENABLE_CODE_COVERAGE={0}'.format(arguments['--coverage']))
-    command.append('-DGOOGLETEST_ROOT=external/googletest/googletest')
     command.append('-DCMAKE_BUILD_TYPE={0}'.format(arguments['--type']))
     command.append('-G "{0}"'.format(arguments['--generator']))
     if arguments['--cmake-options'] != "''":
