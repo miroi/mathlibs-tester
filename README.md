@@ -7,10 +7,10 @@
 
 
 
-MathLibs tester
-===============
+MathLibs-Autocmake tester
+=========================
 
-Simple Fortran90 program for checking few LAPACK and BLAS mathematical libraries.
+Simple Fortran90 program for checking some of the LAPACK and BLAS mathematical libraries.
 
 The MathLibs tester can also be used to evaluate the performance of internal parallelization of selected routines from the well-know LAPACK and BLAS libraries, which may be in these packages:
 - GNU system native
@@ -20,9 +20,9 @@ The MathLibs tester can also be used to evaluate the performance of internal par
 - OpenBLAS
 - ESSL
 
-The **MathLibs-tester** project is built upon the [autocmake](https://github.com/scisoft/autocmake) CMake plugin composer and serves also its testing.
+The **MathLibs-Autocmake-tester** project is built upon the [autocmake](https://github.com/scisoft/autocmake) CMake plugin composer and serves for its testing.
 
-For the **MathLibs-tester** project online testing see the [CDash-web](https://testboard.org/cdash/index.php?project=MathLibs-tester).
+For the **MathLibs-Autocmake-tester** project online testing see the [CDash-web](https://testboard.org/cdash/index.php?project=MathLibs-tester).
 
 
 Buildup and usage
