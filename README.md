@@ -27,7 +27,7 @@ For the **MathLibs-tester** project online testing see the [CDash-web](https://t
 
 Buildup and usage
 -----------------
-For example, utilize the commercial ifort compiler with MKL as the prefered library:
+For example, utilize the Intel's ifort compiler with MKL as the prefered library:
 ~~~
 python setup.py --fc=ifort --cmake-options="-DMATH_LIB_SEARCH_ORDER='MKL;OPENBLAS;SYSTEM_NATIVE' build_ifort
 cd build_ifort
