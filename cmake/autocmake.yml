@@ -35,7 +35,7 @@ modules:
     - '%(url_root)compilers/XL.CXX.cmake'
 
 - plugins:
-  - source:
+    - "%(url_root)modules/git_info/git_info.h.in"
     - '%(url_root)modules/math_libs.cmake'
     - '%(url_root)modules/ccache.cmake'
     - '%(url_root)modules/definitions.cmake'
@@ -44,3 +44,9 @@ modules:
     - '%(url_root)modules/default_build_paths.cmake'
     - '%(url_root)modules/src.cmake'
 
+- custom:
+    - 'custom/main_custom.cmake'
+    - 'custom/test.cmake'
+    - 'custom/static_linking.cmake'
+    - 'custom/build_info.cmake'
+    - 'custom/FindCompilerVersion.cmake'
