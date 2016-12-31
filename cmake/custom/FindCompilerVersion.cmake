@@ -8,6 +8,8 @@
 #
 # Written by Ivan Hrasko, February 2014.
 # 
+# TODO: Check on Python, https://autocmake.readthedocs.io/en/latest/module-reference.html#python-interpreter-cmake 
+# 
 #########################################################################################
 
 # What is minimum required compiler version depending on vendor? 
