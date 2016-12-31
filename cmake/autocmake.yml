@@ -36,8 +36,7 @@ modules:
 
 - plugins:
   - source:
-    - "%(url_root)modules/git_info/git_info.cmake"
-    #- "%(url_root)modules/git_info/git_info.h.in"
+    - "%(url_root)modules/python_interpreter.cmake"
     - '%(url_root)modules/math_libs.cmake'
     - '%(url_root)modules/ccache.cmake'
     - '%(url_root)modules/definitions.cmake'
@@ -45,6 +44,7 @@ modules:
     - '%(url_root)modules/safeguards.cmake'
     - '%(url_root)modules/default_build_paths.cmake'
     - '%(url_root)modules/src.cmake'
+    - "%(url_root)modules/git_info/git_info.cmake"
 
 - custom:
   - source:

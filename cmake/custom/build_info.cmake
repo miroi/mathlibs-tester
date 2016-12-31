@@ -142,6 +142,8 @@ configure_file(
     ${PROJECT_BINARY_DIR}/build_info.h
     @ONLY
 )
+# to allow ALLOW_DUPLICATE_CUSTOM_TARGETS 
+cmake_policy(SET CMP0002 OLD)
 
 add_custom_target(
     build_info
