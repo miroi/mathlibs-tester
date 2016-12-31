@@ -36,7 +36,8 @@ modules:
 
 - plugins:
   - source:
-    - "%(url_root)modules/git_info/git_info.h.in"
+    - "%(url_root)modules/git_info/git_info.cmake"
+    #- "%(url_root)modules/git_info/git_info.h.in"
     - '%(url_root)modules/math_libs.cmake'
     - '%(url_root)modules/ccache.cmake'
     - '%(url_root)modules/definitions.cmake'
