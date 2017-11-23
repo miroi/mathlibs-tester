@@ -41,15 +41,17 @@ modules:
     - '%(url_root)modules/python_interpreter.cmake'
     - '%(url_root)modules/math_libs.cmake'
     - '%(url_root)modules/code_coverage.cmake'
-    - 'custom/static_linking.cmake'
     - '%(url_root)modules/profile.cmake'
     - '%(url_root)modules/int64.cmake'
     - '%(url_root)modules/safeguards.cmake'
+    - '%(url_root)modules/default_build_paths.cmake'
     - '%(url_root)modules/git_info/git_info.cmake'
     - '%(url_root)modules/version.cmake'
+    - '%(url_root)modules/src.cmake'
 - explicit:
   - docopt: "--explicit-libs=<LIBS> Explicit linker specification for extra libraries passed directly to the linker [default: off]."
   - define: "'-DEXPLICIT_LIBS=\"{0}\"'.format(arguments['--explicit-libs'].strip())"
 - custom:
   - source:
+    - 'custom/static_linking.cmake'
     - 'custom/main_custom.cmake'
