@@ -1,3 +1,6 @@
+# (c) https://github.com/coderefinery/autocmake/blob/master/AUTHORS.md
+# licensed under BSD-3: https://github.com/coderefinery/autocmake/blob/master/LICENSE
+
 #.rst:
 #
 # Detects Python interpreter.
@@ -15,10 +18,10 @@
 #   PYTHON_VERSION_MINOR       - Python minor version found e.g. 5
 #   PYTHON_VERSION_PATCH       - Python patch version found e.g. 2
 #
-# autocmake.cfg configuration::
+# autocmake.yml configuration::
 #
-#   docopt: --python=<PYTHON_INTERPRETER> The Python interpreter (development version) to use. [default: ''].
-#   define: '-DPYTHON_INTERPRETER="%s"' % arguments['--python']
+#   docopt: "--python=<PYTHON_INTERPRETER> The Python interpreter (development version) to use. [default: '']."
+#   define: "'-DPYTHON_INTERPRETER=\"{0}\"'.format(arguments['--python'])"
 
 if("${PYTHON_INTERPRETER}" STREQUAL "")
     find_package(PythonInterp REQUIRED)

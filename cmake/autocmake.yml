@@ -1,0 +1,55 @@
+# CMakeLists.txt and setup script will be generated from this file
+# see: http://autocmake.readthedocs.io/en/latest/developers/configuration.html
+# adapt the following lines and expand
+
+name: myproject
+
+min_cmake_version: 2.8
+
+default_build_type: release
+
+language:
+  - Fortran
+  - C
+  - CXX
+
+url_root: https://github.com/coderefinery/autocmake/raw/master/
+
+modules:
+- compilers:
+  - source:
+    - '%(url_root)modules/fc.cmake'
+    - '%(url_root)modules/cc.cmake'
+    - '%(url_root)modules/cxx.cmake'
+- flags:
+  - source:
+    - '%(url_root)compilers/GNU.C.cmake'
+    - '%(url_root)compilers/GNU.CXX.cmake'
+    - '%(url_root)compilers/GNU.Fortran.cmake'
+    - '%(url_root)compilers/Intel.C.cmake'
+    - '%(url_root)compilers/Intel.CXX.cmake'
+    - '%(url_root)compilers/Intel.Fortran.cmake'
+    - '%(url_root)compilers/PGI.C.cmake'
+    - '%(url_root)compilers/PGI.CXX.cmake'
+    - '%(url_root)compilers/PGI.Fortran.cmake'
+    - '%(url_root)compilers/XL.C.cmake'
+    - '%(url_root)compilers/XL.CXX.cmake'
+    - '%(url_root)compilers/XL.Fortran.cmake'
+- plugins:
+  - source:
+    - '%(url_root)modules/definitions.cmake'
+    - '%(url_root)modules/python_interpreter.cmake'
+    - '%(url_root)modules/math_libs.cmake'
+    - '%(url_root)modules/code_coverage.cmake'
+    - 'custom/static_linking.cmake'
+    - '%(url_root)modules/profile.cmake'
+    - '%(url_root)modules/int64.cmake'
+    - '%(url_root)modules/safeguards.cmake'
+    - '%(url_root)modules/git_info/git_info.cmake'
+    - '%(url_root)modules/version.cmake'
+- explicit:
+  - docopt: "--explicit-libs=<LIBS> Explicit linker specification for extra libraries passed directly to the linker [default: off]."
+  - define: "'-DEXPLICIT_LIBS=\"{0}\"'.format(arguments['--explicit-libs'].strip())"
+- custom:
+  - source:
+    - 'custom/main_custom.cmake'

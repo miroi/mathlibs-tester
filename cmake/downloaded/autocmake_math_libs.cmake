@@ -1,3 +1,6 @@
+# (c) https://github.com/coderefinery/autocmake/blob/master/AUTHORS.md
+# licensed under BSD-3: https://github.com/coderefinery/autocmake/blob/master/LICENSE
+
 #.rst:
 #
 # Detects and links to BLAS and LAPACK libraries.
@@ -37,18 +40,20 @@
 #   MKL_ROOT
 #   MKLROOT
 #
-# autocmake.cfg configuration::
+# autocmake.yml configuration::
 #
-#   docopt: --blas=<BLAS> Detect and link BLAS library (auto or off) [default: auto].
-#           --lapack=<LAPACK> Detect and link LAPACK library (auto or off) [default: auto].
-#           --mkl=<MKL> Pass MKL flag to the Intel compiler and linker and skip BLAS/LAPACK detection (sequential, parallel, cluster, or off) [default: off].
-#   define: '-DENABLE_BLAS=%s' % arguments['--blas']
-#           '-DENABLE_LAPACK=%s' % arguments['--lapack']
-#           '-DMKL_FLAG=%s' % arguments['--mkl']
-#           '-DMATH_LIB_SEARCH_ORDER="MKL;ESSL;OPENBLAS;ATLAS;ACML;SYSTEM_NATIVE"'
-#           '-DBLAS_LANG=Fortran'
-#           '-DLAPACK_LANG=Fortran'
-#   warning: 'This module is deprecated and will be removed in future versions'
+#   docopt:
+#     - "--blas=<BLAS> Detect and link BLAS library (auto or off) [default: auto]."
+#     - "--lapack=<LAPACK> Detect and link LAPACK library (auto or off) [default: auto]."
+#     - "--mkl=<MKL> Pass MKL flag to the Intel compiler and linker and skip BLAS/LAPACK detection (sequential, parallel, cluster, or off) [default: off]."
+#   define:
+#     - "'-DENABLE_BLAS={0}'.format(arguments['--blas'])"
+#     - "'-DENABLE_LAPACK={0}'.format(arguments['--lapack'])"
+#     - "'-DMKL_FLAG={0}'.format(arguments['--mkl'])"
+#     - "'-DMATH_LIB_SEARCH_ORDER=\"MKL;ESSL;OPENBLAS;ATLAS;ACML;SYSTEM_NATIVE\"'"
+#     - "'-DBLAS_LANG=Fortran'"
+#     - "'-DLAPACK_LANG=Fortran'"
+#   warning: "the math_libs.cmake module is deprecated and will be removed in future versions"
 
 #-------------------------------------------------------------------------------
 # ENABLE_STATIC_LINKING
@@ -506,11 +511,17 @@ if (ENABLE_STATIC_LINKING)
         BLAS_TYPE MATCHES SYSTEM_NATIVE OR
         BLAS_TYPE MATCHES OPENBLAS)
         #cc_blas_static with ATLAS on travis-ci needs -lm
-        set(MATH_LIBS ${MATH_LIBS} -Wl,--whole-archive -lpthread -Wl,--no-whole-archive -lm)
+        set(MATH_LIBS ${MATH_LIBS} -Wl,--whole-archive -lpthread -ldl -Wl,--no-whole-archive -lm)
     endif()
     if (LAPACK_TYPE MATCHES MKL OR
         BLAS_TYPE MATCHES MKL)
         # fix for MKL static linking
         set(MATH_LIBS ${MATH_LIBS} -ldl)
     endif()
+endif()
+
+if(MATH_LIB_SEARCH_ORDER)
+    # this print is here to avoid warning about MATH_LIB_SEARCH_ORDER which
+    # might be set but never used
+    message(STATUS "MATH_LIB_SEARCH_ORDER set to ${MATH_LIB_SEARCH_ORDER}")
 endif()

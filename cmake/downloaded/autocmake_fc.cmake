@@ -1,3 +1,6 @@
+# (c) https://github.com/coderefinery/autocmake/blob/master/AUTHORS.md
+# licensed under BSD-3: https://github.com/coderefinery/autocmake/blob/master/LICENSE
+
 #.rst:
 #
 # Adds Fortran support.
@@ -21,14 +24,13 @@
 #
 #   FCFLAGS
 #
-# autocmake.cfg configuration::
+# autocmake.yml configuration::
 #
-#   docopt: --fc=<FC> Fortran compiler [default: gfortran].
-#           --extra-fc-flags=<EXTRA_FCFLAGS> Extra Fortran compiler flags [default: ''].
-#   export: 'FC={0}'.format(arguments['--fc'])
-#   define: '-DEXTRA_FCFLAGS="{0}"'.format(arguments['--extra-fc-flags'])
-
-enable_language(Fortran)
+#   docopt:
+#     - "--fc=<FC> Fortran compiler [default: gfortran]."
+#     - "--extra-fc-flags=<EXTRA_FCFLAGS> Extra Fortran compiler flags [default: '']."
+#   export: "'FC={0}'.format(arguments['--fc'])"
+#   define: "'-DEXTRA_FCFLAGS=\"{0}\"'.format(arguments['--extra-fc-flags'])"
 
 set(CMAKE_Fortran_MODULE_DIRECTORY ${PROJECT_BINARY_DIR}/modules)
 include_directories(${PROJECT_BINARY_DIR}/modules)
@@ -42,7 +44,9 @@ if(NOT CMAKE_Fortran_COMPILER_WORKS)
 endif()
 
 if(DEFINED EXTRA_FCFLAGS)
+  if(NOT EXTRA_FCFLAGS STREQUAL "")
     set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} ${EXTRA_FCFLAGS}")
+  endif()
 endif()
 
 if(DEFINED ENV{FCFLAGS})

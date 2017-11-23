@@ -1,3 +1,6 @@
+# (c) https://github.com/coderefinery/autocmake/blob/master/AUTHORS.md
+# licensed under BSD-3: https://github.com/coderefinery/autocmake/blob/master/LICENSE
+
 #.rst:
 #
 # Enables code coverage by appending corresponding compiler flags.
@@ -8,10 +11,10 @@
 #   CMAKE_C_FLAGS
 #   CMAKE_CXX_FLAGS
 #
-# autocmake.cfg configuration::
+# autocmake.yml configuration::
 #
-#   docopt: --coverage Enable code coverage [default: False].
-#   define: '-DENABLE_CODE_COVERAGE=%s' % arguments['--coverage']
+#   docopt: "--coverage Enable code coverage [default: False]."
+#   define: "'-DENABLE_CODE_COVERAGE={0}'.format(arguments['--coverage'])"
 
 option(ENABLE_CODE_COVERAGE "Enable code coverage" OFF)
 

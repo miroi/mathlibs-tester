@@ -1,3 +1,6 @@
+# (c) https://github.com/coderefinery/autocmake/blob/master/AUTHORS.md
+# licensed under BSD-3: https://github.com/coderefinery/autocmake/blob/master/LICENSE
+
 #.rst:
 #
 # Enables 64-bit integer support for Fortran projects.
@@ -6,10 +9,10 @@
 #
 #   CMAKE_Fortran_FLAGS
 #
-# autocmake.cfg configuration::
+# autocmake.yml configuration::
 #
-#   docopt: --int64 Enable 64bit integers [default: False].
-#   define: '-DENABLE_64BIT_INTEGERS=%s' % arguments['--int64']
+#   docopt: "--int64 Enable 64bit integers [default: False]."
+#   define: "'-DENABLE_64BIT_INTEGERS={0}'.format(arguments['--int64'])"
 
 option(ENABLE_64BIT_INTEGERS "Enable 64-bit integers" OFF)
 
