@@ -54,4 +54,5 @@ modules:
 - custom:
   - source:
     - 'custom/static_linking.cmake'
+    - 'custom/build_info.cmake'
     - 'custom/main_custom.cmake'

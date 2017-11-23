@@ -1,6 +1,6 @@
 subroutine print_info
 ! print configuration/build info by the executable
-#include "git_info.h"
+!#include "git_info.h"
 #include "build_info.h"
 
 use iso_c_binding
