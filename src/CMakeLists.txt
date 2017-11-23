@@ -1,3 +1,6 @@
+#
+generate_git_info_header(${PROJECT_BINARY_DIR} git_info.h)
+
 if(CMAKE_Fortran_COMPILER_ID MATCHES PGI)
     # remove -rdynamic flag offensive to PGI Fortran
     list(REMOVE_ITEM CMAKE_SHARED_LIBRARY_LINK_Fortran_FLAGS "-rdynamic")
