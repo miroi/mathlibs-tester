@@ -241,4 +241,4 @@ else:
 
 
 #! this is the standard output for CMake (must be in this order and with ;)
-print C_COMPILER_VERSION + ';' + CXX_COMPILER_VERSION + ';' + Fortran_COMPILER_VERSION
+print (C_COMPILER_VERSION + ';' + CXX_COMPILER_VERSION + ';' + Fortran_COMPILER_VERSION)
